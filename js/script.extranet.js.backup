@@ -1,0 +1,276 @@
+$(function () {
+
+    $('.maskdate').mask("00/00/0000", {placeholder: "__/__/____"});
+    $('.maskdatesimple').mask("00/00/0000");
+    $('.maskquotite').mask("000", {placeholder: "100 max"});
+
+    $('.maskdate01').mask("IJ/00/0000", {'translation': {
+        I: {pattern: /[0]/},
+        J: {pattern: /[1]/}
+    }
+    }, {placeholder: "01/__/____"});
+    $('.mskcodepostal').mask("00000", {placeholder: "_____"});
+    $('.mskduree').mask("0##", {placeholder: "___"});
+    $('.phone').mask("00 00 00 00 00", {placeholder: "__ __ __ __ __"});
+    $('.percent').mask("000");
+    $('.numssoc').mask("0 00 00 00 000 000 00", {placeholder: "_ __ __ __ ___ ___ __"});
+    $('.mskiban').mask("SS00 0000 0000 0000 0000 AAAA AAAA", {placeholder: "IBAN"});
+    //$('.mskiban').mask("SS00 0000 0000 0000 0000 AAAA AAAA", {placeholder: "____ ____ ____ ____ ____ ____ _____"});
+    $('.msktaux').mask("0.000", {placeholder: "_.___"});
+    $('.mskmontant').mask("## ### 000", {reverse: true});
+    $('.mskmontantvirgule').mask("## ### 000,", {reverse: true});
+    $('.mskmontantvirgule1').mask("## ### 000,0", {reverse: true});
+     $('.mskmontantvirgule2').mask("## ### 000,00", {reverse: true});
+    $('.mskmontantpoint').mask("## ### 000.", {reverse: true});
+    $('.mskmontantpoint1').mask("## ### 000.0", {reverse: true});
+    $('.mskmontantpoint2').mask("## ### 000.00", {reverse: true});
+    $('.maskpourcent').mask("##0 %", {reverse: true});
+    $('.data-link').click(function(){
+        location.href = $(this).data('link');
+    });
+
+    $("#rkdevisSearchDD").keyup(function () {
+        var req = $(this).val();
+        $.ajax({
+            url: 'SearchDevisCourtier?' + req+'&render',
+            type: "get"
+        }).done(function (data) {
+            console.log(data);
+            $('#mesDevis').html(data);
+
+        });
+
+    });
+
+    $("form").submit(function (event) {
+
+        //console.log('submitionn');
+        formReturn = false;
+        var THIS = $(this);
+        var verifAction = '';
+        event.preventDefault();
+
+        //alert("ici on fait la vérification du formulaire " + $(this).attr('verif-action'));
+        if ($(this).attr('verif-action')){ verifAction = $(this).attr('verif-action'); }else {  verifAction = false;  }
+
+        if (verifAction !== false) {
+            $('#inputsubmit').html('<span class="ajaxloader">Contrôle des données<br/>en cours...</span>');
+            $.ajax({
+                url: verifAction,
+                type: 'post',
+                data: $(this).serializeArray()
+            }).done(function (data, textStatus, jqXHR) {
+                //console.log(data);
+                var res = $.parseJSON(data);
+                //console.log('ICIC====='+res.valid);
+                if (res.valid === false) {
+
+
+                    var lemsg = $.fn.nl2br(res.message);
+
+
+                    $('#myModalErrorForm .modal-body').html(lemsg);
+
+                    $('#myModalErrorForm').modal();
+
+
+                    // $('#dialog-message').dialogBox('Erreur de saisie', lemsg);
+                    $('#inputsubmit').html('<button type="submit" class="btn btn-success calculer"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Calculer                    </button>');
+                    $('#divcal').html('<button type="submit" id="bouttonCalcul" class="btn btn-success" value="Calculer">Calculer</button>');
+                    formReturn = false;
+
+                    $('#inputsubmit button').click(function() {
+                        THIS.bind('submit').submit();
+                    });
+                    //THIS.bind('submit').submit();
+                } else {
+
+                    formReturn = true;
+                    THIS.unbind('submit').submit();
+                }
+            });
+
+        }else{
+            THIS.unbind('submit').submit();
+        }
+
+
+    });
+
+    $('#fullform').click(function () {
+        $('.full-field-form').toggle();
+
+        ( $('#fullform .textBtn').text() == "Calculette rapide" ) ? $('#fullform .textBtn').text('Formulaire Complet') : $('#fullform .textBtn').text('Calculette rapide');
+
+    });
+
+});
+
+
+$.fn.nl2br = function(varTest){
+    return varTest.replace(/(\r\n|\n\r|\r|\n)/g, "<br />");
+};
+
+$.fn.toggleSlideInfo = function (width, zlabel , top ) {
+//$.fn.toggleSlideInfo = function (width ) {
+
+    var zlabel = zlabel || 'Fiche technique';
+    var top = top || '116px';
+
+    var W = width;
+
+    var metaDiv = $('<div/>').css({position:'fixed', right:'-' + W + 'px', width : W+'px', height: '80%', display : 'none', top:top, 'border-left': '1px solid #CCCCCC', backgroundColor : '#FFFFFF', opacity : '0.9' }).addClass('pollSlider');
+    var button = $('<div class="pollSlider-button closed"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span><div style="width:150px;height:150px;-ms-transform: rotate(270deg);    -webkit-transform: rotate(270deg); transform: rotate(270deg);">' +zlabel+ '</div></div>').css({backgroundColor : '#e8008f', padding : '5px', fontSize : '20px', color : '#FFFFFF', position:'absolute', left:'-54px', width : '54px', height : '220px', cursor : 'pointer'});
+    metaDiv.append(button);
+    metaDiv.append($(this));
+    $('body').append(metaDiv);
+
+    metaDiv.css('display','block');
+
+    $(this).css({height : ( metaDiv.height() - 50 ) + 'px', padding : '5px', overflowY : 'scroll'});
+
+
+    var THAT = $(this);
+
+    $(document).on('click', function (e) {
+        if ($(e.target).closest(".pollSlider").length === 0) {
+
+            if($('.pollSlider-button').hasClass('opened')) {
+                $('.pollSlider').animate({"right": '-' + W + 'px'});
+                $('.pollSlider-button').switchClass('opened', 'closed');
+            }
+        }
+    });
+
+    $('.pollSlider-button').click(function() {
+
+
+        //console.log($(this).attr('class'));
+
+
+        if($(this).hasClass('opened')) {
+            $('.pollSlider').animate({"right": '-' + W + 'px'});
+            $(this).switchClass('opened', 'closed');
+
+           // console.log('ici');
+        }else{
+            //console.log('la');
+            $('.pollSlider').animate({"right": '0'});
+            $(this).switchClass('closed', 'opened');
+        }
+
+
+    });
+
+}
+
+
+$.fn.toggleSlideListInfo = function (width, zlabel  ) {
+//$.fn.toggleSlideInfo = function (width ) {
+
+    var zlabel = zlabel || 'Accès derniers devis';
+
+
+    var W = width;
+
+    var metaDiv = $('<div/>').css({position:'relative', width : W+'px', height: '80%', display : 'block', 'border-left': '1px solid #CCCCCC', backgroundColor : '#FFFFFF', 'z-index' : 9, 'float' : 'right' }).addClass('pollListSlider');
+    var button = $('<div class="pollListSlider-button closed"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> ' +zlabel+ '</div>').css({backgroundColor : '#0094CC', padding : '5px', fontSize : '20px', color : '#FFFFFF',  width : '300px', height : '35px', cursor : 'pointer'});
+    metaDiv.append(button);
+    metaDiv.append($(this));
+    $("#content").before(metaDiv);
+
+    metaDiv.css('display','block');
+
+    $(this).css({display : 'none', padding : '5px', position : 'absolute',backgroundColor : '#FFFFFF', 'border' : '1px solid gray' , width : W+'px'});
+
+
+    var THAT = $(this);
+
+    $(document).on('click', function (e) {
+        if ($(e.target).closest(".pollListSlider").length === 0) {
+
+            THAT.hide();
+            //if($('.pollListSlider-button').hasClass('opened')) {
+            //    $('.pollListSlider').animate({"right": '-' + W + 'px'});
+            //    $('.pollListSlider-button').switchClass('opened', 'closed');
+            //}
+        }
+    });
+
+    $('.pollListSlider-button').click(function() {
+
+
+        THAT.toggle('slow');
+
+
+
+    });
+
+}
+$.fn.dialogBox = function (title, msg,callback) {
+    callback = callback || function(){};
+    var message = msg;
+    var titre = title;
+
+    $('<div></div>').dialog({
+        modal: true,
+        width: 500,
+        title: titre,
+        open: function () {
+            $(this).html(message);
+        },
+        buttons: {
+            Ok: function () {
+                callback(true);
+                $(this).dialog("close");
+            },
+            Annuler: function() {
+                callback(false);
+                $(this).dialog("close");
+            }
+
+        }
+    });
+
+};
+
+$.fn.serializeObject = function ()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function () {
+        if (o[this.name]) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+function number_format (number, decimals, dec_point, thousands_sep) {
+    // Strip all characters but numerical ones.
+    number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+    var n = !isFinite(+number) ? 0 : +number,
+        prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+        sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+        dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+        s = '',
+        toFixedFix = function (n, prec) {
+            var k = Math.pow(10, prec);
+            return '' + Math.round(n * k) / k;
+        };
+    // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+    if (s[0].length > 3) {
+        s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+    }
+    if ((s[1] || '').length < prec) {
+        s[1] = s[1] || '';
+        s[1] += new Array(prec - s[1].length + 1).join('0');
+    }
+    return s.join(dec);
+}

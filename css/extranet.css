@@ -1,0 +1,446 @@
+body {
+    /*background-color: #43bdd5;*/
+}
+.tooltip{
+    /*z-index: 999999999999999;position: absolute;*/
+}
+.partenaire{
+    background-image: linear-gradient(to left, #009ee2, #43bdd5);
+
+}
+
+#menu-partenaire-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba( 255, 255, 255, 0.5 );
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+/*.partenaire .grey-bg{*/
+/*background:transparent url(https://dev.www.elois.fr/medias/bg.gif) no-repeat;*/
+/*background-size: 50% 100%;*/
+/*background-position:  right 40px;*/
+/*}*/
+
+@media (min-width: 991px) {
+    .partenaire .grey-bg{
+        /*background: url(https://dev.www.elois.fr/medias/bg.gif) no-repeat;*/
+        /*background-size: 50% 100%;*/
+        /*background-position:  right 40px;*/
+    }
+
+}
+
+@media (max-width: 991px) {
+    /*@media (max-width: 768px) {*/
+    #menu-partenaire.list-group li{
+        /*display: inline-block;*/
+    }
+
+    #mesDevis li {
+        width: 100%;
+    }
+    #menu-partenaire.list-group hr{
+        /*display: none;*/
+    }
+    #menu-partenaire.list-group .libel{
+        /*display: none;*/
+    }
+
+    #menu-partenaire {
+        left: -300px;
+        top: 0;
+        z-index: 1000;
+        width: 300px;
+        max-width: 100%;
+        height: 100vh;
+        position: fixed;
+        background-color: #43bdd5!important;
+        -webkit-transition: left 0.5s;
+        transition: left 0.5s;
+        overflow: auto;
+    }
+
+    #menu-partenaire.open > li:first-child {
+        position: fixed!important;
+        width: 300px;
+    }
+
+    #menu-partenaire.open > a:nth-child(2) > li {
+        margin-top: 40px!important;
+    }
+
+    #menu-partenaire.open {
+        left: 0;
+        -webkit-transition: left 0.5s;
+        transition: left 0.5s;
+    }
+
+    #menu-partenaire.open ~ #menu-partenaire-overlay {
+        display: block;
+    }
+}
+
+.partenaire .grey-content{
+    background-color: #f1f5f8;
+    border-radius: 5px;
+    padding: 4px 28px 14px 28px;
+}
+
+.partenaire .grey-content a{
+    color: #009ee2;
+}
+
+.partenaire h3 span{
+    font-size: 30px;
+    font-weight: 600;
+}
+#myModal h4 {
+    font-size: 14px;
+    /*font-weight: 600;*/
+}
+#myModal h3  {
+    font-size: 14px;
+    /*font-weight: 600;*/
+}
+
+#myModal .date-inh3{
+    color: #FFF;
+    font-weight: 600;
+    padding:10px;
+}
+#myModal .date-inh3 label{
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 600;
+}
+#myModal .date-inh3 input{
+    background-color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    padding:3px;
+    max-width: 100px;
+    text-align: center;
+}
+
+
+#myModal button.close {
+    border: 2px solid #FFF;
+    border-radius: 12px;
+    width: 22px;
+    height: 22px;
+    opacity: 1;
+    color: #FFF;
+    line-height: 0;
+}
+
+
+.partenaire .list-group.squares{
+    margin-top: 10px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #fff;
+    border-radius: 0;
+}
+.partenaire .list-group.squares li{
+    color:#32294e;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    border-radius: 0px;
+    margin: 0;
+    padding: 5px 10px;
+}
+.partenaire .list-group.squares a{
+    color:#32294e;
+    opacity: 1;
+    font-size: 14px;
+}
+.partenaire .list-group.squares li.pack-resiliation{
+
+    border-radius: 4px;
+    background-image: linear-gradient(to top, #34aa44, #39b54a);
+    border: solid 1px #249533;
+    width: 100%;
+    display: inline-block;
+    color: #FFF;
+    text-align: center;
+    position: absolute;
+    bottom:0;
+
+    /*color:#FFF;*/
+    /*background-color: #009ee2;*/
+    /*position: absolute;*/
+    /*bottom:0;*/
+    /*width:100%;*/
+}
+.partenaire .list-group.squares li.pack-resiliation a{
+    color:#FFF;
+}
+.partenaire .list-group.squares li a:hover{
+    text-decoration: none;
+    color:#FFF;
+}
+.partenaire .list-group.squares li:hover{
+    color:#FFF;
+}
+
+/*.partenaire .list-group.squares li:hover{*/
+/*color:#FFF;*/
+/*background-color: rgba(0,0,0,0.2);*/
+/*}*/
+.partenaire .bleu-square .list-group li:hover{
+    color:#FFF;
+    background-color: #009ee2;
+}
+.partenaire .rose-square .list-group li:hover{
+    color:#FFF;
+    background-color: #eb008b;
+}
+.partenaire .rose-square .list-group li:hover a{
+    color:#FFF;
+    background-color: #eb008b;
+}
+
+.partenaire .white-encart{
+    background-color: #FFF;border-radius: 5px;font-size: 18px;
+    font-weight: 600;color: #312782;text-transform: uppercase;margin:10px 0;padding:0px 10px;
+    line-height: 45px;
+}
+.partenaire .white-encart img{
+    height:28px;
+}
+.partenaire .white-encart .btns{
+    font-size: 10px;margin-right: 20px;color: #27b0da;cursor: pointer;
+    line-height: 47px;
+}
+
+.partenaire .copy-delete i{
+    margin-left:7px;cursor: pointer;margin-top: 5px;
+}
+.partenaire #moreDevis{
+    text-align: center;border: 1px solid #d0d0d0;margin-top: 0px;background-color: #FAFAFA;cursor: pointer;border-radius: 3px;color: #d0d0d0;
+}
+.partenaire #moreDevis:hover{
+    background-color: #FFFFFF;color: #bbbbbb;
+}
+
+#myModal a{
+    color: #27b0da;
+}
+#myModal .modal-header, #myModalErrorForm .modal-header, #modalLoading .modal-header, #modalSuiviDossier .modal-header, #modalSuiviMagnolia .modal-header{
+    background: #eb008b;
+    color: #FFFFFF;
+}
+
+#myModal .tablistmodal{
+    margin-top:20px;
+    margin-bottom: 10px;
+    border:none;
+}
+#myModal .tablistmodal a{
+    font-size: 18px;
+    color: #333;
+}
+#myModal .tablistmodal li.disabled a{
+    color: #AAA;
+}
+.square-element {
+    color: #FFFFFF;
+    padding:00px;
+    background-size: 100% auto !important;
+}
+
+.square-element h3 {
+    margin:0px;
+    padding: 10px 0 0 10px;
+}
+
+.square-element.rose {
+    background: #eb008b;
+}
+
+.rose {
+    background: #eb008b;
+}
+
+.botmargin10{
+    margin-bottom: 10px;
+}
+
+.flexrow{
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.roundDevis {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    -webkit-border-radius: 15px / 15px;
+    -moz-border-radius:    15px / 15px;
+    border-radius:         15px / 15px;
+}
+.square-element.bleu {
+    background: #009ee2;
+}
+.bleu {
+    background: #009ee2;
+}
+
+.color-bleu {
+    color: #009ee2;
+}
+.color-rose {
+    color: #eb008b;
+}
+
+#lesdevis a, #slider-li ul a{
+    color:#009ee2;
+}
+
+.data-link{cursor: pointer}
+.data-link.recents{padding: 3px 0;}
+.data-link.recents:hover{background-color: #FFF;}
+.closestdevis:hover{background-color: #FFF;}
+
+#mesDevis{
+    min-width: 450px;
+}
+#mesDevis li:nth-child(2n+2){
+    background-color: #EFEFEF}
+
+#mesDevis .list-group-item {
+    margin-bottom: 0px;
+    padding: 0px;
+}
+#mesDevis .list-devis-nom{
+    color: #000000;
+    padding: 3px 13px;
+}
+
+#mesDevis .list-group-item a{
+    display: inline-block;
+    width: 100%;
+}
+#mesDevis .list-group-item .produit{
+    color:#000099;
+}
+
+@media (min-width: 1200px) {
+    .list-group.squares a:first-child li {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .partenaire .white-encart .btns{
+        font-size: 0px;
+    }
+}
+
+@media (max-width: 991px){
+    #menu-block-bonjour a {
+        position: absolute;
+        right: 15px;
+    }
+
+}
+@media (min-width: 991px){
+
+    .hidden-991 {
+        display:none !important;
+    }
+}
+@media (max-width: 767px){
+    #nos-contrats {
+        padding: 0;
+    }
+    .square-element {
+        margin-bottom: 30px;
+    }
+    .square-element h3 {
+        height: 40%;
+    }
+    #menu-partenaire.list-group li {
+        position: static;
+    }
+    #mesDevis .list-group-item .left, #mesDevis .list-group-item .right {
+        float: none;
+    }
+    .list-group.squares a:first-child li {
+        padding-top: 20px;
+    }
+
+    #menu-partenaire {
+        margin-bottom: 0;
+    }
+    #menu-partenaire.list-group li {
+        margin: 0;
+    }
+    #menu-block-hr {
+        margin-bottom: 0;
+    }
+    .partenaire .white-encart .btns {
+        margin-right: 7px !important;
+    }
+    .modal-dialog {
+        width: auto !important;
+        min-width: auto !important;
+        max-width: auto !important;
+    }
+    .modal-body .well {
+        padding: 10px;
+    }
+    .modal-body .well .pull-left, .modal-body .well .pull-right {
+        float: none !important;
+    }
+    #table-details th {
+        background-color: #fff;
+    }
+    .partenaire .white-encart {
+        /*text-align: center;*/
+    }
+    .partenaire .white-encart .btns {
+        float: none;
+        display: inline-block;
+        margin: 0 10px;
+    }
+    .partenaire .white-encart img {
+        float: none;
+    }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+    #nos-contrats {
+        padding: 0;
+    }
+    .square-element {
+        height: 170px !important;
+        margin-bottom: 50px;
+        background-size: 50% !important;
+    }
+    .partenaire .list-group.squares {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        padding-top: 10px;
+        background-color: #fff;
+    }
+    .copy-delete {
+        padding: 0;
+    }
+    #nos-partenaires img {
+        width: 100% !important;
+    }
+    #nos-partenaires .col-md-4:nth-child(2) img {
+        margin-top: 7px;
+    }
+}

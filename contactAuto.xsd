@@ -1,0 +1,24 @@
+<xs:complexType name="ContactAuto">
+	<xs:sequence>
+		<xs:element name="titulaireCarteGrise" type="tns:selfTitulaireCarteGriseEnum" minOccurs="0"/>
+		<xs:element name="anterioriteVehicule" type="tns:selfAnterioriteVehiculeEnum" minOccurs="0"/>
+		<xs:element name="lieuStationnement" type="tns:selfLieuStationnementEnum" minOccurs="0"/>
+		<xs:element name="usagePrevu" type="tns:selfUsageVehiculeAreasEnum" minOccurs="0"/>
+		<xs:element name="conducteurType" type="tns:selfConducteurTypeEnum" minOccurs="0"/>
+		<xs:element name="corporelleType" type="tns:selfCorporelleTypeEnum" minOccurs="0"/>
+		<xs:element name="identificationVehicule" type="xs:string" minOccurs="0"/>
+		<xs:element name="dateAchat" type="xs:string" minOccurs="0"/>
+		<xs:element name="immatriculation" type="xs:string" minOccurs="0"/>
+		<xs:element name="dateEffet" type="xs:string" minOccurs="0"/>
+		<xs:element name="codePostalLieuParking" type="xs:string" minOccurs="0"/>
+		<xs:element name="villeLieuParking" type="xs:string" minOccurs="0"/>
+		<xs:element name="zoneLieuParking" type="xs:string" minOccurs="0"/>
+		<xs:element name="ConducteurPrincipale" type="tns:ConducteurPrincipale" minOccurs="0"/>
+		<xs:element name="ConducteurSecondaire" type="tns:ConducteurSecondaire" minOccurs="0"/>
+		<xs:element name="dateMiseEnCiculation" type="xs:string" minOccurs="0"/>
+		<xs:element name="assistanceAugmenteeAutoType" type="tns:selfAssistanceAugmenteeAutoEnum" minOccurs="0"/>
+		<xs:element name="possedeAccNonLivre" type="tns:selfOuiNonEnum" minOccurs="0"/>
+		<xs:element name="utilisationPlus50PourCent" type="tns:selfOuiNonEnum" minOccurs="0"/>
+		<xs:element name="provenance" type="xs:string" minOccurs="0"/>
+	</xs:sequence>
+</xs:complexType>

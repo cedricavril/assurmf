@@ -1,0 +1,2 @@
+<a class="refus" href="javascript:tagAnalyticsCNIL.CookieConsent.gaOptout()">Cliquez ici pour vous opposer aux cookies de mesure d'audience de Google</a>
+<script type="text/javascript" src="../includes/banniere-cookie/cookie-consent.js"></script>

@@ -1,0 +1,60 @@
+#cookie-banner {
+/*	position: fixed;*/
+	top: 0;
+	width: 100%;
+	background-color: #55555555;
+	text-align: center;
+	padding: 10px;
+	border-bottom: 1px solid #eeeeee;
+	z-index: 1500;
+}
+#cookie-banner a { text-decoration:underline;}
+
+#inform-and-ask {
+	background-color: rgba(0,0,0,0.5);
+}
+
+#inform-and-consent {
+	width: 300px;
+	max-width: 100%;
+	background-color: white;
+	border: 1px solid #cccccc; 
+	padding: 20px 20px 10px 20px;
+	text-align:center;
+	position: fixed; 
+	top:30px;
+	left:50%; 
+	margin-top:0px; 
+	margin-left:-150px; 
+	z-index:2000;
+	opacity:1;
+}
+#inform-and-consent h1 {
+	font-size: 300%;
+	color: #0c0000;
+	margin-bottom: 10px;
+	font-style: normal;
+}
+#inform-and-consent p {
+	margin-bottom: 20px;
+	line-height: 137.5%;
+	text-align: left;
+}
+#optout-button { margin-right:50px; }
+
+ /* Fade-Out Effect */
+.hidden {
+	visibility: hidden;
+	opacity: 0;
+		-webkit-transition: visibility 0s 4s, opacity 2s linear 2s;
+		-moz-transition: visibility 0s 4s, opacity 2s linear 2s;
+		-o-transition: visibility 0s 4s, opacity 2s linear 2s;
+		-ms-transition: visibility 0s 4s, opacity 2s linear 2s;
+	transition: visibility 0s 4s, opacity 2s linear 2s;
+}
+
+
+.refus {
+  display: block;
+	margin-top: 20px;
+}

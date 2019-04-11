@@ -1,0 +1,42 @@
+email hello@assurmf.fr + faire les tests
+métadonnées
+linkedin recom
+cahier des charges Cf rapport,
+	==> mentions légales et RGPD
+	==> mails template
+	==> logo .ico ou png
+
+"Open Sans", sans-serif -> font + ancien font
+couleurs : 
+bleu #43bdd5
+rose rgb(235, 0, 139) #eb008b
+jaune #f8a332
+
+captcha : clés : 
+du site : 
+6LeFBJkUAAAAAGB-ofZ2o7MingWNFhLoGAxtI4Yt
+
+secrète :
+6LeFBJkUAAAAAFHsi-L22cLFgm77yTvjQZ5NjzbT
+
+pour les iframe : utiliser <iframe src="news.html" frameborder="0" scrolling="no" width="100%" onload="resizeIframe(this)" />
+
+ajouter captcha pour les form utilisateur.
+
+notes
+
+php e.g. pour appeler de manière absolue : 
+include($_SERVER['DOCUMENT_ROOT']."/includes/templates/mail.php");
+
+
+
+
+
+***************************************************
+
+- renvoyer les éventuels messages d'erreur pdo 
+- zoomimage : supprimer pour les appareils
+
+- Remplacez la valeur UA-XXXXXX-Y par l'identifiant analytics de votre site dans includes/banniere-cookie/cookie-consent.js
+- et Insérez votre tag Google Analytics ou Universal Analytics où s'y est indiqué
+
