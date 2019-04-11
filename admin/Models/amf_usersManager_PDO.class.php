@@ -143,11 +143,13 @@ class amf_userManager_PDO {
 			$idArray = '('.implode(',', $idArray).')';
 			$db->exec('DELETE FROM amf_users WHERE id in '. $idArray);
 
-		} else $db->exec('DELETE FROM amf_users WHERE id = '. (int) $id);
+		} else {
+			$db->exec('DELETE FROM amf_users WHERE id = '. (int) $id);
 
-		// delete the user dir and files from ../images
-		array_map('unlink', glob("../images/$id/*"));
-		if (is_dir("../images/$id")) rmdir("../images/$id");
+			// delete the user dir and files from ../images
+			array_map('unlink', glob("../images/$id/*"));
+			if (is_dir("../images/$id")) rmdir("../images/$id");
+		}
 
 		$data['type'] = json_encode('success');
 		$data['message'] = json_encode("Utilisateur(s) supprimé(s).");

@@ -1,7 +1,6 @@
 <?php
 	$is_success = "success";
 	$error_msg = "error";
-	$msgSuccess = "Fichiers téléchargés.";
 
 $id = json_decode($_POST['id']);
 //$id = 12;
@@ -14,7 +13,6 @@ chmod($file, 0777);
 $arrayResult = array();
 
 foreach ($_FILES as $key => $value) {
-	$msgSuccess .=  "value : $value2<br>";
 	if (upload($key, $file . $_FILES[$key]['name'])) $arrayResult[] = $_FILES[$key]['name']; else echo $error_msg;
 };
 

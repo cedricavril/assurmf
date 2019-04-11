@@ -1,7 +1,6 @@
 <?php
 	ini_set('display_errors', 1);
-    if ($_SERVER["REMOTE_ADDR"]=='127.0.0.1' || $_SERVER["REMOTE_ADDR"]=="::1") $db = new \PDO('mysql:host=localhost;dbname=assurmf', 'user1', 'pass') or die("plantage");
-    else $db = new \PDO('mysql:host=sql.franceserv.fr;dbname=cavril_db1', 'cavril', 'pGZEn6WH');
+    $db = (($_SERVER['REMOTE_ADDR'] == '127.0.0.1') || ($_SERVER['REMOTE_ADDR'] == "::1")) ? new \PDO('mysql:host=localhost;dbname=assurmf;charset=UTF8', 'root', '') : new \PDO('mysql:host=sql.franceserv.fr;dbname=cavril_db1;charset=UTF8', 'cavril', 'pGZEn6WH');
 
     $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     $db->exec("SET CHARACTER SET utf8");

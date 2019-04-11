@@ -6,18 +6,21 @@ class UserController
 {
 	public function __construct(array $donnees = array())
 	{
+
+if (!isset($_POST["CRUD"])) $_POST["CRUD"] = 'R';
+
 	switch (true) {
 		case $_POST["CRUD"] == 'C':
 			echo json_encode(amf_userManager_PDO::add(new User(
 				array(
-					'pass' => $_POST["pass"], 
-					'description' => $_POST["description"], 
+					'pass' => 'pass PDO', 
+					'description' => 'description PDO', 
 					'email' => $_POST["email"], 
 					'tel' => $_POST["tel"], 
 					'adresse' => $_POST["adresse"], 
 					'prenom' => $_POST["prenom"], 
-					'birth_date' => $_POST["birth_date"], 
-					'licence_date' => $_POST["licence_date"], 
+					'birth_date' => date("Y-m-d H:i:s"), 
+					'licence_date' => date("Y-m-d H:i:s"), 
 					'nom' => $_POST["nom"])
 			)));
 			break;
@@ -26,7 +29,7 @@ class UserController
 			echo json_encode(amf_userManager_PDO::edit(new User(
 				array(
 					'id' => $_POST["id"],
-					'pass' => $_POST["pass"], 
+					'pass' => 'pass PDO', 
 					'description' => $_POST["description"], 
 					'email' => $_POST["email"], 
 					'tel' => $_POST["tel"], 

@@ -116,7 +116,7 @@ hr.bottom{
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php" style="padding: 0;"><img style="height: 100px;" src="<?= $urlHeadPrefix ?>images/banner.svg"></a>
+                <a class="navbar-brand" href="index.php" style="padding: 0;"><img style="height: 100px;" src="images/banner.svg"></a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul id="mainMenu" class="nav navbar-nav  navbar-right">
