@@ -46,18 +46,18 @@ include ("includes/head.php");
         <div class="img-circle" data-bg = "images/paw.svg" id="boutonChienChat"><h2>ASSURANCE ANIMAUX</h2></div>
     </div>
 
-    <div class="row" id="responsiveFontSize">
+    <div class="row" id="responsiveFontSize" style="background-color: #43bdd5">
         <div class="col-md-4">
             <div class="well">
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0; background-color: #eb008b;">MALUSSÉS</span>&nbsp;,</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0; background-color: #eb008b;">SINISTRÉS</span>&nbsp;,</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0; background-color: #eb008b;">NON PAIEMENTS</span>&nbsp;,</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0; background-color: #eb008b;">PERMIS ÉTRANGERS</span>&nbsp;,</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">MALUSSÉS</span>&nbsp;,</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">SINISTRÉS</span>&nbsp;,</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">NON PAIEMENTS</span>&nbsp;,</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">PERMIS ÉTRANGERS</span>&nbsp;,</h2>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="well" style="background-color:#bbb;">
-                <h2 class="text-danger text-center secondColumn" style="line-height: 0;"><span class="label label-danger" style="line-height: 0; background-color: #43bdd5; "><strong>on a la solution :</strong></span></h2>
+            <div class="well">
+                <h2 class="text-danger text-center secondColumn" style="height: 0;"><span class="label label-danger"><strong>on a la solution :</strong></span></h2>
             </div>
         </div>
         <div class="col-md-4">
@@ -304,7 +304,7 @@ include ("includes/head.php");
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
-<?php include("test.php"); ?>
+<?php include("addFiles.php"); ?>
 
         </div>
     </div>
@@ -376,8 +376,6 @@ $('a[href^="#"]').click(function(){
     $('html, body').animate({
         scrollTop:$(the_id).offset().top
     }, 'slow');
-
-// Devis Modal script
 
     // Activate tooltip
     $('[data-toggle="tooltip"]').tooltip();

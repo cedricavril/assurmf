@@ -107,6 +107,7 @@ hr.bottom{
 </head>
 <body xmlns="http://www.w3.org/1999/html">
 <!--    <div class="bg"><img src="images/BG.jpg"></div>-->
+<!-- MENU -->
     <nav class="navbar" style="">
         <div class="container" id="navcontainer">
             <div class="navbar-header">

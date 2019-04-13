@@ -368,6 +368,23 @@ ul#mainMenu li a i {
   text-align: center;
 }
 
+#responsiveFontSize .well {
+  background: none;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  border: 0;
+  box-shadow: none;
+}
+#responsiveFontSize .well .label-danger {
+  background-color: #eb008b;
+}
+
+#responsiveFontSize .well button {
+  text-transform: uppercase;
+}
+
+
 @media (max-width: 1000px) {
   #responsiveFontSize h2.secondColumn {
     padding: 10px;
