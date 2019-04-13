@@ -49,18 +49,16 @@ include "visitCounter.php";
     <link rel="stylesheet" href="css/jquery.ui.css">
     <link rel="stylesheet" href="css/extranet.css">
     <link rel="stylesheet" href="includes/banniere-cookie/cookie-consent.css">
-    <link rel="stylesheet" href="css/<?= $style ?>">
-    
+    <link rel="stylesheet" href="css/<?= $style ?>"> <!-- mostly call indexstyle.css -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <?php if(isset($style2)) { ?> <link rel="stylesheet" href="css/<?= $style2 ?>"> <?php } ?>
 
@@ -81,7 +79,9 @@ hr.bottom{
   padding-bottom: 20px;
 }
 </style>
+
 <style type="text/css">
+    /* upload page style */
 /* layout.css Style */
 .upload-drop-zone {
   height: 200px;

@@ -25,8 +25,8 @@ class amf_userManager_PDO {
 			$user->hydrate($user->getData());
 			$dataUser = $user->getData();
 			$dataUser['date_arrivee'] = strftime("%d/%m/%G à %R", strtotime($dataUser['date_arrivee']));
-			$dataUser['licence_date'] = strftime("%d/%m/%G à %R", strtotime($dataUser['licence_date']));
-			$dataUser['birth_date'] = strftime("%d/%m/%G à %R", strtotime($dataUser['birth_date']));
+			$dataUser['licence_date'] = strftime("%d/%m/%G", strtotime($dataUser['licence_date']));
+			$dataUser['birth_date'] = strftime("%d/%m/%G", strtotime($dataUser['birth_date']));
 			$dataUser = json_encode($dataUser);
 			$data[] = $dataUser;
 		}
@@ -56,9 +56,9 @@ class amf_userManager_PDO {
 		{
 			$dataUser = $user->getData();
 			$dataUser['date_arrivee'] = strftime("%d/%m/%G à %R", strtotime($dataUser['date_arrivee']));
-			$dataUser['licence_date'] = strftime("%d/%m/%G à %R", strtotime($dataUser['licence_date']));
-			$dataUser['birth_date'] = strftime("%d/%m/%G à %R", strtotime($dataUser['birth_date']));
-
+			// js format so it can be edited and displayed in a date input
+			$dataUser['licence_date'] = strftime("%G-%m-%d", strtotime($dataUser['licence_date']));
+			$dataUser['birth_date'] = strftime("%G-%m-%d", strtotime($dataUser['birth_date']));
 
 			$requete->closeCursor();
 			return $dataUser;
@@ -78,8 +78,8 @@ class amf_userManager_PDO {
 		$userData = $user->getData();
 		$valuesPDO2 = '';
 		$valuesPDO1 = '';
-		unset($userData['erreurs']);
-		unset($userData['dataArray']);
+		unset($userData['erreurs']); // unused yet
+		unset($userData['dataArray']); // idem
 		unset($userData['date_arrivee']);
 		unset($userData['id']);
 		$userData['pass'] = "PDO méthode add";
