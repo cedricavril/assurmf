@@ -18,15 +18,15 @@
                 <div class="col-xs-6">
                     <a href="la-societe.php"><i class="fa fa-envelope"></i>Contactez-nous</a>
                 </div>
-                <div class="col-xs-6">
+<!--                <div class="col-xs-6">
                     <a href="charte-de-confidentialite.php"><i class="fa fa-sticky-note-o"></i>charte de confidentialite</a>
-                </div>
+                </div>-->
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <h2>Suivez-nous
-                    <a href="https://www.facebook.com/SimulassurbyElois/" target="_blank"><img src="images/picto_facebook.svg" class="iconreso"></a>
-                    <a href="https://www.linkedin.com/company/elois-assurances" target="_blank"><img src="images/picto_linkedin.svg" class="iconreso"></a>
-                    <a href="https://twitter.com/EloisAssurances" target="_blank"><img src="images/picto_twitter.svg" class="iconreso"></a>
+                    <a href="https://www.facebook.com/WWW.ASSURMF.FR/" target="_blank"><img src="images/picto_facebook.svg" class="iconreso"></a>
+                    <a href="https://www.linkedin.com/in/assurmf-assurances-8b9932184/" target="_blank"><img src="images/picto_linkedin.svg" class="iconreso"></a>
+                    <a href="https://twitter.com/assurmf" target="_blank"><img src="images/picto_twitter.svg" class="iconreso"></a>
                 </h2>
                 <a>© 2019 Assurmf. Tous droits réservés.</a>
             </div>

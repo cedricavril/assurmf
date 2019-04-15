@@ -259,6 +259,15 @@ li.chiffre-cle {
   color: #f8a332;
 }
 /* FRONT STATIC TEMPLATE */
+iframe {
+  box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  background-color: #fffa;
+}
+
+
+
 .main-content ol li {
   list-style-type: inherit;
 }
@@ -355,9 +364,9 @@ ul#mainMenu li a i {
 .marquee{
   display:block;
 position:relative;
-width:2000px;
-height:175px;
-animation:scroll 20s linear infinite;
+width:7200px;
+height:60px;
+animation:scroll 60s linear infinite;
 padding:3px;
 }
 
@@ -374,13 +383,19 @@ padding:3px;
 }
 /* Make it move */
 @keyframes scroll{
-0% {left:0px;}
-100% {left:-2000px;}
+0% {left:200px;}
+100% {left:-7000px;}
 }
 /* /home page slider */
 
 
 /* /FRONT STATIC TEMPLATE */
+#home-top-space {
+  padding: 0;
+}
+
+
+
 /* RESPONSIVE */
 #devis button {
 /*  line-height: 14;*/
@@ -420,6 +435,11 @@ padding:3px;
   text-transform: uppercase;
 }
 
+@media (max-width: 1200px) {
+  #responsiveFontSize .col-md-4 {
+    width: 100%;
+  }
+}
 @media (max-width: 1000px) {
   #responsiveFontSize h2.secondColumn {
     padding: 10px;
@@ -428,13 +448,14 @@ padding:3px;
   #responsiveFontSize button {
     margin-top: 20px;
   }  
+
 }
 @media (min-width: 1201px) {
-#responsiveFontSize h2 {
-  margin-top: 50px; margin-bottom: 50px;line-height: 0; font-size: 33px;
-  padding-bottom: 0;
-  padding-top: 0;
-}
+  #responsiveFontSize h2 {
+    margin-top: 50px; margin-bottom: 50px;line-height: 0; font-size: 33px;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
   .rotation {
     margin-left: -133px;
     -webkit-animation:spin 1s forwards;
