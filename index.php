@@ -12,11 +12,42 @@ include ("includes/head.php");
                 <h1>en assurances</h1>
                 <div id="home-chiffres-space">
                     <div id="dixhuit_contrats" class="chiffre-cle mt-30">
+<div class="sliderContainer">
+<div class="marquee">
+
+
+<?php 
+$dirName = "images/partenaires/";
+// arbitrarily create a -big image if doesn't exist in the server
+$d = dir($dirName);
+$images = Array();
+while (false !== ($entry = $d->read())) {
+    if (!strpos($entry, '-big') && $entry != "." && $entry != "..") {
+        $images[] = $entry;
+        $big_image = explode('.', $entry);
+
+        $big_suffix = '-big.'.$big_image[count($big_image) - 1];
+        array_pop($big_image);
+        $big_image = implode('.', $big_image).$big_suffix;
+        if (!file_exists($dirName.$big_image)) {
+            copy($dirName.$entry, $dirName.$big_image);
+            chmod($dirName.$big_image, 0777);
+        }
+
+        $fileNamePiecesTogether = preg_replace('/(\.).*/', '', $entry);
+
+//        var_dump(implode('.', $fileNamePieces) $big_image);
+    }
+}
+$d->close(); // si ça marche et que c'est ok virer les scripts "wow"
+    for ($i = 0; $i < count($images); $i++) {
+?>
+  <div class="img1"><a><img class="img-responsive wow fadeIn animated zoomImage imgPartnerSlider" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/<?php echo $images[$i]; ?>"></a></div>
+
+<?php } ?>
+  </div>
+</div>
                         <ul>
-                            <li class="chiffre-cle" style="color: transparent;"></li>
-                            <li class="chiffre-cle" style="color: transparent;"></li>
-                            <li class="chiffre-cle" style="color: transparent;"></li>
-                            <li class="chiffre-cle" style="color: transparent;"></li>
                         </ul>
                     </div>
                 </div>
@@ -49,15 +80,15 @@ include ("includes/head.php");
     <div class="row" id="responsiveFontSize" style="background-color: #43bdd5">
         <div class="col-md-4">
             <div class="well">
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">MALUSSÉS</span>&nbsp;,</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">SINISTRÉS</span>&nbsp;,</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">NON PAIEMENTS</span>&nbsp;,</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">PERMIS ÉTRANGERS</span>&nbsp;,</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">malussés</span>&nbsp;,</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">sinistrés</span>&nbsp;,</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">non paiements</span>&nbsp;,</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">permis étrangers</span>&nbsp;,</h2>
             </div>
         </div>
         <div class="col-md-4">
             <div class="well">
-                <h2 class="text-danger text-center secondColumn" style="height: 0;"><span class="label label-danger"><strong>on a la solution :</strong></span></h2>
+                <h2 class="text-danger text-center secondColumn" style="height: 0;"><span class="label label-danger"><strong>on a la solution</strong></span></h2>
             </div>
         </div>
         <div class="col-md-4">
@@ -66,35 +97,6 @@ include ("includes/head.php");
             </div>
         </div>
     </div><!--/row-->    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </div>
@@ -122,56 +124,41 @@ include ("includes/head.php");
                                     <li data-target="#carousel-slider" data-slide-to="2"></li>
                                 </ol>
 
-                                <div class="carousel-inner">
-                                    <div class="item">
+                                <div class="carousel-inner" style="color: black;">
+                                    <?php 
+$dirName = "images/partenaires/";
+// arbitrarily create a -big image if doesn't exist in the server
+$d = dir($dirName);
+$images = Array();
+while (false !== ($entry = $d->read())) {
+    if (!strpos($entry, '-big') && $entry != "." && $entry != "..") {
+        $images[] = $entry;
+        $big_image = explode('.', $entry);
+
+        $big_suffix = '-big.'.$big_image[count($big_image) - 1];
+        array_pop($big_image);
+        $big_image = implode('.', $big_image).$big_suffix;
+        if (!file_exists($dirName.$big_image)) {
+            copy($dirName.$entry, $dirName.$big_image);
+            chmod($dirName.$big_image, 0777);
+        }
+
+        $fileNamePiecesTogether = preg_replace('/(\.).*/', '', $entry);
+
+//        var_dump(implode('.', $fileNamePieces) $big_image);
+    }
+}
+$d->close();
+    for ($i = 0; $i < count($images); $i++) {
+?>
+                                    <div class="item <?php if ($i == 0) echo "active" ?>">
                                         <ul>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage imgPartnerSlider" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/afi_esca.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="200ms" src="images/partenaires/allianz.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="400ms" src="images/partenaires/april.png"></a></li>
+                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage imgPartnerSlider" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/<?php echo $images[($i * 3) % count($images)]; ?>"></a></li>
+                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage imgPartnerSlider" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/<?php echo $images[(($i * 3) + 1) % count($images)]; ?>"></a></li>
+                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage imgPartnerSlider" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/<?php echo $images[(($i * 3) + 2) % count($images)]; ?>"></a></li>
                                         </ul>
                                     </div>
-                                    <div class="item active">
-                                        <ul>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="300ms" src="images/partenaires/cardif.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="300ms" src="images/partenaires/first_emprunteur.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="200ms" src="images/partenaires/generali.png"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item">
-                                        <ul>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="400ms" src="images/partenaires/met_life.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/spheria.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="300ms" src="images/partenaires/suravenir.png"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item">
-                                        <ul>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="400ms" src="images/partenaires/mma.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/novelia.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="300ms" src="images/partenaires/aviva.png"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item">
-                                        <ul>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="400ms" src="images/partenaires/alptis.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/groupefb.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="300ms" src="images/partenaires/groupe_zephir.png"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item">
-                                        <ul>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="400ms" src="images/partenaires/eca.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/netvox.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="300ms" src="images/partenaires/apivia.png"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item">
-                                        <ul>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="400ms" src="images/partenaires/solly_azar.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="100ms" src="images/partenaires/lcdm.png"></a></li>
-                                            <li><a><img class="img-responsive wow fadeIn animated zoomImage" data-wow-duration="1000ms" data-wow-delay="300ms" src="images/partenaires/smatis.png"></a></li>
-                                        </ul>
-                                    </div>
+<?php } ?>
                                 </div>
 
 
@@ -309,9 +296,6 @@ include ("includes/head.php");
         </div>
     </div>
 </div>
-
-
-
 
 
 <!--<script src="admin/js/jquery/main.js"></script>-->

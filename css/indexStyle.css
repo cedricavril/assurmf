@@ -345,6 +345,41 @@ ul#mainMenu li a i {
   margin-right: 40px;
   display: inline-block;
 }
+
+/* home page slider */
+.sliderContainer {
+  padding:3px;
+  width:100%; /* or sth like count(images) * 175px */
+  overflow:hidden;
+}
+.marquee{
+  display:block;
+position:relative;
+width:2000px;
+height:175px;
+animation:scroll 20s linear infinite;
+padding:3px;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+.img1 {
+  width:175px;
+  height:60px;
+  background-color:#f6f6f6;
+  margin:3px;
+  float:left;
+}
+/* Make it move */
+@keyframes scroll{
+0% {left:0px;}
+100% {left:-2000px;}
+}
+/* /home page slider */
+
+
 /* /FRONT STATIC TEMPLATE */
 /* RESPONSIVE */
 #devis button {
@@ -376,6 +411,7 @@ ul#mainMenu li a i {
   border: 0;
   box-shadow: none;
 }
+
 #responsiveFontSize .well .label-danger {
   background-color: #eb008b;
 }
@@ -384,11 +420,14 @@ ul#mainMenu li a i {
   text-transform: uppercase;
 }
 
-
 @media (max-width: 1000px) {
   #responsiveFontSize h2.secondColumn {
     padding: 10px;
   }
+
+  #responsiveFontSize button {
+    margin-top: 20px;
+  }  
 }
 @media (min-width: 1201px) {
 #responsiveFontSize h2 {
@@ -449,6 +488,10 @@ ul#mainMenu li a i {
 }
 @media (max-width: 410px) {
 
+  .sliderContainer {
+    display: none;
+  }
+
   #responsiveFontSize h2 {
     font-size: 27px;
     padding: 0;
@@ -463,7 +506,6 @@ ul#mainMenu li a i {
   #responsiveFontSize .well {
     padding: 0;
   }
-
 
   #resoDevisBtn {
     margin-top: 20px;
