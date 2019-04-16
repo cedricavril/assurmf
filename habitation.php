@@ -1,5 +1,5 @@
 <?php
-$title = "ASSURMF - Habitation";
+$title = "ASSUR & MF - Habitation";
 $style = "indexStyle.css";
 $menu['habitation'] = "active";
 include ("includes/head.php");

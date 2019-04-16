@@ -1,4 +1,4 @@
-<?php 
+<?php
 // assuming this post exists 
 $_POST['message'] = nl2br($_POST['message']);
 
@@ -12,7 +12,7 @@ $template = "<!-- use bootstrap grid to responsive it all -->
 	<tbody>
 		<tr>
 			<td align= \"center\">
-				<img src= \"https://assurmf.naytheet.fr/images/banner.svg\"><br><br>
+				<img src= \"https://assurmf.fr/images/banner.svg\"><br><br>
 			</td>
 		</tr>
 		<tr>
@@ -40,7 +40,7 @@ $template = "<!-- use bootstrap grid to responsive it all -->
  				</p>
 				<p>
 					<br>
-					<span style = \"color:#000080;font-family: Verdana;\">Bien Cordialement,	<br><br>Kalissa Merchela, <br>Directrice générale</span>
+					<span style = \"color:#000080;font-family: Verdana;\">Bien Cordialement,	<br><br>Khalissa Merchela, <br>Directrice générale</span>
 				</p>
 			</td>
 		</tr></tbody></table>

@@ -57,11 +57,10 @@ $('#addFilesModal').on('shown.bs.modal', function(){
     $('.js-upload-finished').html('');
 });
 
-jQuery(document).ready(function() {
     // adds a user
     $('#addEmployeeModal form').submit(function(e){
         e.preventDefault();
-        var user = {
+        user = {
             id: "",
             email: $('#addEmployeeModal [data-user="email"]').val(), 
             description: $('#addEmployeeModal [data-user="description"]').val(), 
@@ -92,6 +91,4 @@ jQuery(document).ready(function() {
             }
         });
     });
-
-});
 </script>

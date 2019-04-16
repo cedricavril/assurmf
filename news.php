@@ -1,5 +1,5 @@
 <?php
-$title = "ASSURMF - Actualités";
+$title = "ASSUR & MF - Actualités";
 $style = "indexStyle.css";
 $menu["news"] = "active";
 include ("includes/head.php");

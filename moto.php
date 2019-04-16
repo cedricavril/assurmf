@@ -1,5 +1,5 @@
 <?php
-$title = "ASSURMF - Moto";
+$title = "ASSUR & MF - Moto";
 $style = "indexStyle.css";
 $menu['moto'] = "active";
 include ("includes/head.php");

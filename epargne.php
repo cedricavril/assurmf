@@ -1,5 +1,5 @@
 <?php
-$title = "ASSURMF - Épargne Placement";
+$title = "ASSUR & MF - Épargne Placement";
 $style = "indexStyle.css";
 $menu['epargne'] = "active";
 include ("includes/head.php");

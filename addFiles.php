@@ -1,22 +1,22 @@
     <div class="panel panel-default" style="overflow: auto;">
-      <div class="panel-heading"><strong>Upload Files</strong> <small>Bootstrap files upload</small></div>
+      <div class="panel-heading"><strong>Envoi de fichiers</strong> <small>Envoyez vos images</small></div>
       <div class="panel-body">
 
         <!-- Standar Form -->
-        <h4>Select files from your computer</h4>
+        <h4>Sélectionnez vos fichiers depuis votre ordinateur ou mobile</h4>
         <form method="post" enctype="multipart/form-data" id="js-upload-form">
           <div class="form-inline">
             <div class="form-group">
               <input type="file" name="files" id="js-upload-files" multiple>
             </div>
-            <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+            <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Envoyer</button>
           </div>
         </form>
 
         <!-- Drop Zone -->
-        <h4>Or drag and drop files below</h4>
+        <h4>ou glissez-déposez les ci-dessous</h4>
         <div class="upload-drop-zone" id="drop-zone">
-          Just drag and drop files here
+          Glissez-déposez ici
         </div>
 
         <!-- Progress Bar -->
@@ -29,13 +29,17 @@
 
         <!-- Upload Finished -->
         <div class="js-upload-finished">
-          <h3>Processed files</h3>
+          <h3>Fichiers traités :</h3>
           <div class="list-group">
           </div>
             <button type="button" class="btn btn-sm btn-primary" id="complete">Terminer</button>
         </div>
       </div>
     </div>
+
+
+
+
 
 <script type="text/javascript">
 
@@ -76,7 +80,7 @@ jQuery(document).ready(function() {
             success: function( msg ) {
               msg = JSON.parse(msg);
               $.each(msg, function(i,e){
-               $(".js-upload-finished .list-group").append("<a href='#' class='list-group-item list-group-item-success'><span class='badge alert-success pull-right'>Success</span>" + e + "</a>");
+               $(".js-upload-finished .list-group").append("<a href='#' class='list-group-item list-group-item-success'><span class='badge alert-success pull-right'>Succès</span>" + e + "</a>");
               });
 
               $("#waiting").hide();
@@ -124,6 +128,40 @@ jQuery(document).ready(function() {
 
     $('#complete').click(function(e) {
       $('#addFilesModal').modal('hide');
+
+      var data = new FormData();
+
+      jQuery.each(user, function(key, val) {
+//            data.append('file-'+i, file);
+          data.append(key, val);
+      });
+      data.append('lienImages', 'https://assurmf.fr/images/' + parseInt(JSON.parse(id)));
+
+        $.ajax({
+            url: 'includes/forms/contact/register.php',
+            method: "POST",
+            data: data,
+            processData: false,
+            contentType: false,
+            success: function( msg ) {
+//              msg = JSON.parse(msg);
+              $.each(msg, function(i,e){
+               $(".js-upload-finished .list-group").append("<a href='#' class='list-group-item list-group-item-success'><span class='badge alert-success pull-right'>Succès</span>" + e + "</a>");
+              });
+
+//                $('#addEmployeeModal').modal('hide');
+                //display the user list once done and display the message
+//                getList();
+//                flashShow(JSON.parse(msg.type), JSON.parse(msg.message));
+                console.log(msg);
+            }, 
+            fail: function(failMsg) {
+                alert(failMsg);
+            }
+        });
+
+
+
     });
 
 });

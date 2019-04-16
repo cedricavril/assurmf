@@ -1,5 +1,5 @@
 <?php
-$title = "ASSURMF - Prévoyance Protection des proches";
+$title = "ASSUR & MF - Prévoyance Protection des proches";
 $style = "indexStyle.css";
 $menu['prevoyance'] = "active";
 include ("includes/head.php");

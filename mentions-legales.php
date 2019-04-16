@@ -1,6 +1,6 @@
 <?php
 $including = true;
-$title = "ASSURMF - Mentions légales";
+$title = "ASSUR & MF - Mentions légales";
 $style = "indexStyle.css";
 $style2 = "mentions-legalesStyle.css";
 include "includes/head.php";

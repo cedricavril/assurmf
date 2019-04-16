@@ -1,5 +1,5 @@
 <?php
-$title = "ASSURMF - La société";
+$title = "ASSUR & MF - La société";
 $style = "indexStyle.css";
 $menu["laSociete"] = "active";
 include ("includes/head.php");

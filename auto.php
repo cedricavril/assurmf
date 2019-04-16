@@ -1,5 +1,5 @@
 <?php
-$title = "ASSURMF - Auto";
+$title = "ASSUR & MF - Auto";
 $style = "indexStyle.css";
 $menu['auto'] = "active";
 include ("includes/head.php");

@@ -1,62 +1,62 @@
 <?php
-$title = "ASSURMF";
+$title = "ASSUR & MF";
 $style = "indexStyle.css";
 $menu["index"] = "active";
 include ("includes/head.php");
 ?>
 <div class="blueContainer gradientTheme">
-<?php if (!isset($_GET['uuid'])) { ?>
-    <div class="container home">
-        <div id="home-space" class="row">
-            <div id="home-top-space" class="col-lg-5 col-md-10 col-lg-push-7">
-                <h3 class="mb-0">1<sup>er</sup> Comparateur Indépendant</h3>
-                <h1>en assurances</h1>
-                <div id="home-chiffres-space">
-                    <div id="dixhuit_contrats" class="chiffre-cle mt-30">
-                        <iframe src="https://assurmf.oggo-data.net/iform/health" width="100%" height="450px" frameborder="0"></iframe>
-                        <ul>
-                        </ul>
+    <?php if (!isset($_GET['uuid'])) { ?>
+        <div class="container home">
+            <div id="home-space" class="row">
+                <div id="home-top-space" class="col-lg-5 col-md-10 col-lg-push-7">
+                    <h3 class="mb-0">1<sup>er</sup> Comparateur Indépendant</h3>
+                    <h1>en assurances</h1>
+                    <div id="home-chiffres-space">
+                        <div id="dixhuit_contrats" class="chiffre-cle mt-30">
+                            <!--<iframe src="https://assurmf.oggo-data.net/iform/health" width="100%" height="450px" frameborder="0"></iframe>-->
+                            <ul>
+                            </ul>
+                        </div>
                     </div>
+                    <div class="form-group chiffre-cle mt-30">
+                    </div>
+
                 </div>
                 <div class="form-group chiffre-cle mt-30">
-                </div>
-
-</div>
-<div class="form-group chiffre-cle mt-30">
-    <div id="home-bottom-space" class="col-lg-7 hidden-xs col-lg-pull-5 text-center">
-        <img src="images/logo.svg" />
-        <a href="la-societe.php">
+                    <div id="home-bottom-space" class="col-lg-7 hidden-xs col-lg-pull-5 text-center">
+                        <img src="images/logo.svg" />
+<!--        <a href="la-societe.php">
             <button class="btn btn-lg col-lg-offset-0 col-lg-9 col-xs-offset-2" style="white-space: nowrap; width: 100%">Cliquez ici</button>
-        </a>
+        </a>-->
     </div>
 </div>
-                <div class="sliderContainer">
-                    <h2 class="text-center" style="padding-bottom: 10px; color: #eb008b; padding: 0;">Comparez les leaders du marché</h2>
-                    <div class="marquee">
+<div class="sliderContainer">
+    <h2 class="text-center" style="padding-bottom: 10px; color: #eb008b; padding: 0;">Comparez les leaders du marché</h2>
+    <div class="marquee">
 
 
-                        <?php 
+        <?php 
 
-                        $dirName = "images/partenaires/";
+        $dirName = "images/partenaires/";
 // arbitrarily create a -big image if doesn't exist in the server
-                        $d = dir($dirName);
-                        $images = Array();
-                        while (false !== ($entry = $d->read())) {
-                            if (!strpos($entry, '-big') && $entry != "." && $entry != "..") {
-                                $images[] = $entry;
-                                $big_image = explode('.', $entry);
+        $d = dir($dirName);
+        $images = Array();
+        while (false !== ($entry = $d->read())) {
+            if (!strpos($entry, '-big') && $entry != "." && $entry != "..") {
+                $images[] = $entry;
+                $big_image = explode('.', $entry);
 
-                                $big_suffix = '-big.'.$big_image[count($big_image) - 1];
-                                array_pop($big_image);
-                                $big_image = implode('.', $big_image).$big_suffix;
-                                if (!file_exists($dirName.$big_image)) {
-                                    copy($dirName.$entry, $dirName.$big_image);
-                                    chmod($dirName.$big_image, 0777);
-                                }
+                $big_suffix = '-big.'.$big_image[count($big_image) - 1];
+                array_pop($big_image);
+                $big_image = implode('.', $big_image).$big_suffix;
+                if (!file_exists($dirName.$big_image)) {
+                    copy($dirName.$entry, $dirName.$big_image);
+                    chmod($dirName.$big_image, 0777);
+                }
 
-                                $fileNamePiecesTogether = preg_replace('/(\.).*/', '', $entry);
-                            }
-                        }
+                $fileNamePiecesTogether = preg_replace('/(\.).*/', '', $entry);
+            }
+        }
 $d->close(); // si ça marche et que c'est ok virer les scripts "wow"
 for ($i = 0; $i < count($images); $i++) {
     ?>
@@ -71,41 +71,42 @@ for ($i = 0; $i < count($images); $i++) {
 
 <div class="container-fluid">
 
-<?php if (!isset($_GET['uuid'])) { ?>
-    <div class="panels">
-        <div class="img-circle" data-bg = "images/hand-holding-usd.svg" id="boutonPrets"><h2>ASSURANCE DE PRÊT</h2></div>
-        <div class="img-circle" data-bg = "images/car.svg" id="boutonAuto1"><h2>ASSURANCE AUTO</h2></div>
-        <div class="img-circle" data-bg = "images/motorcycle.svg" id="bouton2roues1"><h2>ASSURANCE 2 ROUES</h2></div>
-        <div class="img-circle" data-bg = "images/home.svg" id="boutonMRH"><h2>ASSURANCE HABITATION</h2></div>
-        <div class="img-circle" data-bg = "images/paw.svg" id="boutonChienChat"><h2>ASSURANCE ANIMAUX</h2></div>
-    </div>
+    <?php if (!isset($_GET['uuid'])) { ?>
+        <div class="panels">
+            <div class="img-circle" data-bg = "images/hand-holding-usd.svg" id="boutonPrets"><h2>ASSURANCE DE PRÊT</h2></div>
+            <div class="img-circle" data-bg = "images/car.svg" id="boutonAuto1"><h2>ASSURANCE AUTO</h2></div>
+            <div class="img-circle" data-bg = "images/motorcycle.svg" id="bouton2roues1"><h2>ASSURANCE 2 ROUES</h2></div>
+            <div class="img-circle" data-bg = "images/home.svg" id="boutonMRH"><h2>ASSURANCE HABITATION</h2></div>
+            <div class="img-circle" data-bg = "images/paw.svg" id="boutonChienChat"><h2>ASSURANCE ANIMAUX</h2></div>
+        </div>
 
-    <div class="row" id="responsiveFontSize" style="background-color: #43bdd5">
-        <div class="col-md-4">
-            <div class="well">
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">malussés</span>&nbsp;</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">sinistrés</span>&nbsp;</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">non paiements</span>&nbsp;</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">permis étrangers</span>&nbsp;</h2>
+        <div class="row" id="responsiveFontSize" style="background-color: #43bdd5">
+            <div class="col-md-4">
+                <div class="well">
+                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">malussés</span>&nbsp;</h2>
+                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">sinistrés</span>&nbsp;</h2>
+                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">non paiements</span>&nbsp;</h2>
+                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">permis étrangers</span>&nbsp;</h2>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4" style="padding-top: 20px;">
-            <div class="well">
-                <h2 class="text-danger text-center secondColumn h1" style="height: 0; margin-top: 25px; line-height: 20px;"><span class="h1" style="line-height: 0; font-weight: bolder; margin: 0; color: white;">on a la solution</span></h2>
+            <div class="col-md-4" style="padding-top: 20px;">
+                <div class="well">
+                    <h2 class="text-danger text-center secondColumn h1" style="height: 0; margin-top: 25px; line-height: 20px;"><span class="h1" style="line-height: 0; font-weight: bolder; margin: 0; color: white;">on a la solution</span></h2>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="well text-center">
-                <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center" style="margin: 0; color: #eb008b;"><strong>Demander un devis</strong></h2></button></a>
+            <div class="col-md-4">
+                <div class="well" style="text-align: center;">
+                    <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center" style="margin: 0; color: #eb008b;"><strong>Demander un devis</strong></h2></button></a>
+                </div>
             </div>
         </div>
     </div><!--/row-->    
 
     <?php 
 } else {
-?>
-<iframe src="https://assurmf.oggo-data.net/iform/health" width="100%" height="500px" frameborder="0"></iframe>
-<?php
+    ?>
+    <iframe src="https://assurmf.oggo-data.net/icomparator/health" width="100%" height="15000px" frameborder="0"></iframe>
+    <?php
 }
 ?>
 </div>
@@ -132,7 +133,7 @@ for ($i = 0; $i < count($images); $i++) {
         </div>
     </div>
 
-<?php
+    <?php
     include "includes/modal-view-error.php";
     include "includes/footer.php";
     ?>
@@ -256,6 +257,7 @@ for ($i = 0; $i < count($images); $i++) {
     </script>-->
 
     <script type="text/javascript">
+var user = Object();
         $( document ).ready(function() {
             $('.img-circle').each( function(index) {
                 $(this).css('background-image', "url(" + $(this).attr('data-bg') + ")");
