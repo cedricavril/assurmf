@@ -58,7 +58,6 @@ if (!isset($_POST["CRUD"])) $_POST["CRUD"] = 'R';
 
 	public function executeShow()
 	{
-
 		echo json_encode(amf_userManager_PDO::getList());
 
 // if requested by AJAX request return JSON response

@@ -67,22 +67,15 @@ var url = "userController.php";
         user.id = currentId;
 
         //calls the controller that will call the PDO manager to save (add or edit) the submitted user
-        $.ajax({
-            url: url,
-            method: "POST",
-            data: user,
-            success: function( msg ) {
-                msg = JSON.parse(msg);
-                console.log($(modalIdSelector));
-                $(modalIdSelector).modal('hide');
-                //display the user list once done and display the message
-                getList();
-                flashShow(JSON.parse(msg.type), JSON.parse(msg.message));
-            }, 
-            fail: function(failMsg) {
-                alert(failMsg);
-            }
-        });
+        var msg = ajax(url, user);
+        if (msg.type != 'fail') {
+            $(modalIdSelector).modal('hide');
+            //display the user list once done and display the message
+            getList();
+            flashShow(msg.data.type, msg.data.message);
+        } else {
+            alert(msg.data.message);
+        }
     };
 
     // add a user
@@ -104,66 +97,59 @@ var url = "userController.php";
     getList = function() {
         user = userFromModal();
 
-        $.ajax({
-            url: url,
-            success: function (data) {
+        var ajaxQuery = ajax(url);
+        var data = ajaxQuery.data;
 
-                data = JSON.parse(data);
+        // we will use an empty user list table row
+        userEmptyRow = $('#usersList tr.user:last-child').clone();
+        
+        // clear the table content
+        $('#usersList').html('');
+        for (var i = 0; i < data.length; i++) {
+            // add an empty user row
+            userEmptyRow.appendTo('#usersList');
+            userEmptyRow = $('tr.user:last-child').clone();
+            // and fill it
 
-                // we will use an empty user list table row
-                userEmptyRow = $('#usersList tr.user:last-child').clone();
-                
-                // clear the table content
-                $('#usersList').html('');
-                for (var i = 0; i < data.length; i++) {
-                    // add an empty user row
-                    userEmptyRow.appendTo('#usersList');
-                    userEmptyRow = $('tr.user:last-child').clone();
-                    // and fill it
+            $('tr.user:last-child td.select').html('<span class="custom-checkbox" ><input type="checkbox" id="' + JSON.parse(data[i]).id + '" name="options[]" value="1"><label for="' + JSON.parse(data[i]).id + '"></label></span>');
+            $('tr.user:last-child td.nom').html(JSON.parse(data[i]).nom);
+            $('tr.user:last-child td.prenom').html(JSON.parse(data[i]).prenom);
+            $('tr.user:last-child td.email').html(JSON.parse(data[i]).email);
+            $('tr.user:last-child td.adresse').html(JSON.parse(data[i]).adresse);
+            $('tr.user:last-child td.tel').html(JSON.parse(data[i]).tel);
+            $('tr.user:last-child td.date_arrivee').html(JSON.parse(data[i]).date_arrivee);
+            $('tr.user:last-child td.actions a').attr('id', JSON.parse(data[i]).id);
+            $('tr.user:last-child td.select input').data('nom', JSON.parse(data[i]).nom);
+            $('tr.user:last-child td.select input').data('prenom', JSON.parse(data[i]).prenom);
+            $('tr.user:last-child td.select input').data('id', JSON.parse(data[i]).id);
 
-                    $('tr.user:last-child td.select').html('<span class="custom-checkbox" ><input type="checkbox" id="' + JSON.parse(data[i]).id + '" name="options[]" value="1"><label for="' + JSON.parse(data[i]).id + '"></label></span>');
-                    $('tr.user:last-child td.nom').html(JSON.parse(data[i]).nom);
-                    $('tr.user:last-child td.prenom').html(JSON.parse(data[i]).prenom);
-                    $('tr.user:last-child td.email').html(JSON.parse(data[i]).email);
-                    $('tr.user:last-child td.adresse').html(JSON.parse(data[i]).adresse);
-                    $('tr.user:last-child td.tel').html(JSON.parse(data[i]).tel);
-                    $('tr.user:last-child td.date_arrivee').html(JSON.parse(data[i]).date_arrivee);
-                    $('tr.user:last-child td.actions a').attr('id', JSON.parse(data[i]).id);
-                    $('tr.user:last-child td.select input').data('nom', JSON.parse(data[i]).nom);
-                    $('tr.user:last-child td.select input').data('prenom', JSON.parse(data[i]).prenom);
-                    $('tr.user:last-child td.select input').data('id', JSON.parse(data[i]).id);
-
-                    /* checkbboxes dynamic handling with the selectedUsers array - nom and prenom 
-                    are used for delete alert display */
-                    $('tr.user:last-child td.select input').change(function(e) {
-                        selectedUser = {
-                            id: $(this).data('id'),
-                            nom: $(this).data('nom'),
-                            prenom: $(this).data('prenom'),
-                        };
-
-                        if(this.checked) selectedUsers.push(selectedUser);
-                        else {
-                            selectedUsers = $.grep(selectedUsers, function(u, i){
-                                return u.id != selectedUser.id;
-                            });
-                        }
-                    });
-
-                    // catch the user id when any action button is clicked
-                    $('tr.user:last-child td.actions a').click(function() {
-                        currentId = parseInt($(this).attr('id'));
-                    });
+            /* checkbboxes dynamic handling with the selectedUsers array - nom and prenom 
+            are used for delete alert display */
+            $('tr.user:last-child td.select input').change(function(e) {
+                selectedUser = {
+                    id: $(this).data('id'),
+                    nom: $(this).data('nom'),
+                    prenom: $(this).data('prenom'),
                 };
-                checkboxCheckAll();
-            },
-            fail: function() {
-                console.log("erreur avec l'ajax");
-            },
-            always: function() {
-                console.log("always");
-            }
-        });
+
+                if(this.checked) selectedUsers.push(selectedUser);
+                else {
+                    selectedUsers = $.grep(selectedUsers, function(u, i){
+                        return u.id != selectedUser.id;
+                    });
+                }
+            });
+
+            // catch the user id when any action button is clicked
+            $('tr.user:last-child td.actions a').click(function() {
+                currentId = parseInt($(this).attr('id'));
+            });
+        };
+        checkboxCheckAll();
+
+
+
+
     }
 
     getUser = function(id) {
@@ -171,29 +157,20 @@ var url = "userController.php";
             CRUD: 'G',
             id: id
         }
-        $.ajax({
-            url: url,
-            method: "POST",
-            data: data,
-            success: function (user) {
-                user = JSON.parse(user);
-
-                $('#editEmployeeModal input[data-user="email"]').val(user.email);
-                $('#editEmployeeModal textarea[data-user="description"]').val(user.description);
-                $('#editEmployeeModal input[data-user="tel"]').val(user.tel);
-                $('#editEmployeeModal textarea[data-user="adresse"]').val(user.adresse);
-                $('#editEmployeeModal input[data-user="prenom"]').val(user.prenom);
-                $('#editEmployeeModal input[data-user="nom"]').val(user.nom);
-                $('#editEmployeeModal input[data-user="birthDate"]').val(user.birth_date);
-                $('#editEmployeeModal input[data-user="licenceDate"]').val(user.licence_date);
-            },
-            fail: function() {
-                console.log("erreur avec l'ajax");
-            },
-            always: function() {
-                console.log("always");
-            }
-        });
+        var getUser = ajax(url, data);
+        if (getUser.type != 'fail') {
+            user = getUser.data;
+            $('#editEmployeeModal input[data-user="email"]').val(user.email);
+            $('#editEmployeeModal textarea[data-user="description"]').val(user.description);
+            $('#editEmployeeModal input[data-user="tel"]').val(user.tel);
+            $('#editEmployeeModal textarea[data-user="adresse"]').val(user.adresse);
+            $('#editEmployeeModal input[data-user="prenom"]').val(user.prenom);
+            $('#editEmployeeModal input[data-user="nom"]').val(user.nom);
+            $('#editEmployeeModal input[data-user="birthDate"]').val(user.birth_date);
+            $('#editEmployeeModal input[data-user="licenceDate"]').val(user.licence_date);
+        } else {
+            alert(getUser.message);
+        }
     }
 
     delUserWarning = function(id) {
@@ -215,23 +192,16 @@ var url = "userController.php";
                 CRUD: 'G',
                 id: id
             }
-            $.ajax({
-                url: url,
-                method: "POST",
-                data: data,
-                success: function (user) {
-                    user = JSON.parse(user);
-                        // add name and surname to the message warning
-                        $('#deleteEmployeeModal .modal-body').html($('#deleteEmployeeModal .modal-body').html()
-                           + '<p class="alert-danger text-center">' + user.nom + ' ' + user.prenom + '</p>');
-                },
-                fail: function() {
-                    console.log("erreur avec l'ajax");
-                },
-                always: function() {
-                    console.log("always");
-                }
-            });
+
+            var delUser = ajax(url, data);
+            if (delUser.type != 'fail') {
+                user = delUser.data;
+                // add name and surname to the message warning
+                $('#deleteEmployeeModal .modal-body').html($('#deleteEmployeeModal .modal-body').html()
+                   + '<p class="alert-danger text-center">' + user.nom + ' ' + user.prenom + '</p>');
+            } else {
+                alert(delUser.message);
+            }
         }
     }
 
@@ -241,23 +211,17 @@ var url = "userController.php";
         user.id = (selectedUsers.length == 0) ? currentId : selectedUsers;
 
         // calls the controller that will call the PDO manager to del the submitted user
-        $.ajax({
-            url: url,
-            method: "POST",
-            data: user,
-            success: function( msg ) {
-                msg = JSON.parse(msg);
-                $('#deleteEmployeeModal').modal('hide');
-                //display the user list once done and free the id and display the message
-                getList();
-                if (currentId != 0) currentId = 0;
-                else selectedUsers = Array();
-                flashShow(JSON.parse(msg.type), JSON.parse(msg.message));
-            }, 
-            fail: function(failMsg) {
-                alert(failMsg);
-            }
-        });
+        var delUser = ajax(url, user);
+        if (delUser.type != 'fail') {
+            $('#deleteEmployeeModal').modal('hide');
+            //display the user list once done and free the id and display the message
+            getList();
+            if (currentId != 0) currentId = 0;
+            else selectedUsers = Array();
+            flashShow(JSON.parse(delUser.type), JSON.parse(delUser.message));
+        } else {
+            alert(delUser.message);
+        }
     });
 
     $('#addEmployeeModal').on('show.bs.modal', function(){

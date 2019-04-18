@@ -11,9 +11,7 @@ $(function () {
     // init the validator
     // validator files are included in the download package
     // otherwise download from http://1000hz.github.io/bootstrap-validator
-
     $('#contact-form').validator();
-
 
     // when the form is submitted
     $('#contact-form').on('submit', function (e) {
@@ -22,6 +20,7 @@ $(function () {
         if (!e.isDefaultPrevented()) {
             var url = "includes/forms/contact/contact.php";
 
+            // can't use ajax() function from ajax.js because of mailing lag
             // POST values in the background the the script URL
             $.ajax({
                 type: "POST",
@@ -31,7 +30,7 @@ $(function () {
                 {
                     // data = JSON object that contact.php returns
 
-                    // we recieve the type of the message: success x danger and apply it to the 
+                    // we receive the type of the message: success x danger and apply it to the 
                     var messageAlert = 'alert-' + data.type;
                     var messageText = data.message;
 

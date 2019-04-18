@@ -13,14 +13,14 @@ include ("includes/head.php");
                     <h1>en assurances</h1>
                     <div id="home-chiffres-space">
                         <div id="dixhuit_contrats" class="chiffre-cle mt-30">
-                            <!--<iframe src="https://assurmf.oggo-data.net/iform/health" width="100%" height="450px" frameborder="0"></iframe>-->
+<?php if (!($_SERVER['REMOTE_ADDR'] == '127.0.0.1') && !($_SERVER['REMOTE_ADDR'] == "::1")) {?>
+                            <iframe src="https://assurmf.oggo-data.net/iform/health" width="100%" height="450px" frameborder="0"></iframe> <?php } ?>
                             <ul>
                             </ul>
                         </div>
                     </div>
                     <div class="form-group chiffre-cle mt-30">
                     </div>
-
                 </div>
                 <div class="form-group chiffre-cle mt-30">
                     <div id="home-bottom-space" class="col-lg-7 hidden-xs col-lg-pull-5 text-center">
@@ -89,14 +89,14 @@ for ($i = 0; $i < count($images); $i++) {
                     <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">permis étrangers</span>&nbsp;</h2>
                 </div>
             </div>
-            <div class="col-md-4" style="padding-top: 20px;">
+            <div class="col-md-4 mobileResponsive-pt20">
                 <div class="well">
-                    <h2 class="text-danger text-center secondColumn h1" style="height: 0; margin-top: 25px; line-height: 20px;"><span class="h1" style="line-height: 0; font-weight: bolder; margin: 0; color: white;">on a la solution</span></h2>
+                    <h2 class="text-danger text-center secondColumn h1 mobileResponsive-lh0 mobileResponsive-mb0" style="height: 0; margin-top: 30px;"><span class="h1" style="line-height: 0; font-weight: bolder; margin: 0; color: white;">on a la solution</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="well" style="text-align: center;">
-                    <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center" style="margin: 0; color: #eb008b;"><strong>Demander un devis</strong></h2></button></a>
+                    <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center mobileResponsive-lh0" style="margin: 0; color: #eb008b;"><strong>Demander un devis</strong></h2></button></a>
                 </div>
             </div>
         </div>

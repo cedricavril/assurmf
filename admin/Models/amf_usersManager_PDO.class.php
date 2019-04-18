@@ -99,9 +99,9 @@ class amf_userManager_PDO {
 
 		$requete->execute();
 
-		$data['type'] = json_encode('success');
-		$data['message'] = json_encode('Utilisateur ajouté.');
-		$data['id'] = json_encode($db->lastInsertId());
+		$data['type'] = 'success';
+		$data['message'] = 'Utilisateur ajouté.';
+		$data['id'] = $db->lastInsertId();
 		return $data;
 	}
 
@@ -123,8 +123,8 @@ class amf_userManager_PDO {
 		$requete = $db->prepare('UPDATE amf_users '.$valuesPDO.' WHERE id = :id');
 		$requete->execute($userData);
 
-		$data['type'] = json_encode('success');
-		$data['message'] = json_encode("Utilisateur modifié.");
+		$data['type'] = 'success';
+		$data['message'] = "Utilisateur modifié.";
 		return $data;
 	}
 	

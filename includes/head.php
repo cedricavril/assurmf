@@ -57,9 +57,12 @@ include "visitCounter.php";
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery/ajax.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsiveStyling.css"> <!-- mostly call indexstyle.css -->
     <?php if(isset($style2)) { ?> <link rel="stylesheet" href="css/<?= $style2 ?>"> <?php } ?>
 
 <style type="text/css">

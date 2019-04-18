@@ -57,6 +57,7 @@ $('#addFilesModal').on('shown.bs.modal', function(){
     $('.js-upload-finished').html('');
 });
 
+
     // adds a user
     $('#addEmployeeModal form').submit(function(e){
         e.preventDefault();
@@ -73,22 +74,16 @@ $('#addFilesModal').on('shown.bs.modal', function(){
         }
         user.CRUD = 'C';
 
-        // calls the controller that will call the PDO manager to add the submitted user
-        $.ajax({
-            url: urlAdd,
-            method: "POST",
-            data: user,
-            success: function( msg ) {
-                msg = JSON.parse(msg);
-                $('#addEmployeeModal').modal('hide');
+         // calls the controller that will call the PDO manager to add the submitted user
+        var msg = ajax(urlAdd, user);
+        if (msg.type != 'fail') {
+            $('#addEmployeeModal').modal('hide');
                 id = msg.id;
                 //display the user list once done and display the message
-                flashShow(JSON.parse(msg.type), JSON.parse(msg.message));
+                flashShow(msg.type, msg.message);
                 $('#addFilesModal').modal('show');
-            }, 
-            fail: function(failMsg) {
-                alert(failMsg);
-            }
-        });
+        } else {
+            alert(msg.message);
+        }
     });
 </script>
