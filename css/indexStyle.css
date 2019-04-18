@@ -387,7 +387,14 @@ padding:3px;
 /* /home page slider */
 
 
+#prevoyanceButtons.panels .img-circle {
+  width: 180px; 
+  height: 180px;
+}
 
+#prevoyanceButtons.panels .img-circle.active {
+  background-color: #444;
+}
 
 /* /FRONT STATIC TEMPLATE */
 #home-top-space {

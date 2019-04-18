@@ -74,16 +74,23 @@ $('#addFilesModal').on('shown.bs.modal', function(){
         }
         user.CRUD = 'C';
 
+
          // calls the controller that will call the PDO manager to add the submitted user
-        var msg = ajax(urlAdd, user);
-        if (msg.type != 'fail') {
-            $('#addEmployeeModal').modal('hide');
-                id = msg.id;
+        $.ajax({
+            url: urlAdd,
+            method: "POST",
+            data: user,
+            success: function( successMsg ) {
+                successMsg = JSON.parse(successMsg);
+                $('#addEmployeeModal').modal('hide');
+                id = successMsg.id;
                 //display the user list once done and display the message
-                flashShow(msg.type, msg.message);
+                flashShow(successMsg.type, successMsg.message);
                 $('#addFilesModal').modal('show');
-        } else {
-            alert(msg.message);
-        }
+            }, 
+            fail: function(failMsg) {
+                alert(JSON.parse(failMsg).message);
+            }
+        });
     });
 </script>

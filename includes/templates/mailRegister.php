@@ -30,7 +30,7 @@ $template = "<!-- use bootstrap grid to responsive it all -->
 					<span style = \"color:#000080;font-family: Verdana;\"><a href='".$lienImages."'>Lien vers les images</a></span>
 				</p>
 				<p>
-					<span style = \"color:#000080;font-family: Verdana;\">Vous pouvez aussi l'appeler directement au <b><a href=\"tel:+33557832810\">0557832810</a></b> ou répondre à ce mail.</span>
+					<span style = \"color:#000080;font-family: Verdana;\">Notre chargée de clientèle prendra bientôt contact avec vous. Vous pouvez aussi l'appeler directement au <b><a href=\"tel:+33557832810\">0557832810</a></b> ou répondre à ce mail.</span>
 				</p>
 				<p style = \"padding-top:25px;\">
 					<span style = \"color:#000080;font-family: Verdana;\">A très bientôt et merci encore pour l'intérêt que vous portez à nos services.</span>

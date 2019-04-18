@@ -2,10 +2,11 @@
 $title = "ASSUR & MF - Prévoyance Protection des proches";
 $style = "indexStyle.css";
 $menu['prevoyance'] = "active";
+$PP = "active";
 include ("includes/head.php");
 include ("includes/prevoyanceHead.php");
 ?>
-<iframe src="https://assurmf.oggo-data.net/icomparator/jh" width="100%" height="15000px" frameborder="0"></iframe>
+<iframe src="https://assurmf.oggo-data.net/icomparator/ij" width="100%" height="15000px" frameborder="0"></iframe>
 </div><!-- /container fluid -->
 
 

@@ -14,12 +14,12 @@ require 'PHPMailer-master/PHPMailerAutoload.php';
 *  CONFIGURE EVERYTHING HERE
 */
 
-$from = "contact@assurmf.fr";
 $customerEmail = $_POST['email'];
 $customerName = $_POST['prenom']." ".$_POST['nom'];
+$from = $customerEmail;
 // an email address that will be in the From field of the email.
-$fromEmail = 'contact@assurmf.fr';
-$fromName = 'Assur & MF';
+$fromEmail = $customerEmail;
+$fromName = $customerName;
 
 // email addresses that will receive the email with the output of the form
 $sendToEmail1 = 'contact@assurmf.fr';
@@ -78,7 +78,6 @@ try {
         $emailTextHtmlData = '';
         $emailTextHtml = '';
         $lienImages = $_POST['lienImages'];
-        var_dump($lienImages);
 
         // everything went well, we can compose the message, as usually
         if(count($_POST) == 0) throw new \Exception('Formulaire vide.');

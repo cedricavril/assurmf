@@ -2,6 +2,7 @@
 $title = "ASSUR & MF - Prévoyance Protection des proches";
 $style = "indexStyle.css";
 $menu['prevoyance'] = "active";
+$CD = "active";
 include ("includes/head.php");
 include ("includes/prevoyanceHead.php");
 ?>

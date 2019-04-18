@@ -63,14 +63,13 @@ jQuery(document).ready(function() {
         var data = new FormData();
 
         jQuery.each(uploadFiles, function(i, file) {
-//            data.append('file-'+i, file);
             data.append('file-'+i, file);
         });
 
 //retrieve user's id
         data.append('id', id);
-              // calls the controller that will call the PDO manager to add the submitted user
 
+       // calls the controller that will call the PDO manager to add the submitted user
         $.ajax({
             url: urlUpload,
             method: "POST",
@@ -145,15 +144,11 @@ jQuery(document).ready(function() {
             contentType: false,
             success: function( msg ) {
 //              msg = JSON.parse(msg);
-              $.each(msg, function(i,e){
-               $(".js-upload-finished .list-group").append("<a href='#' class='list-group-item list-group-item-success'><span class='badge alert-success pull-right'>Succès</span>" + e + "</a>");
-              });
-
 //                $('#addEmployeeModal').modal('hide');
                 //display the user list once done and display the message
 //                getList();
 //                flashShow(JSON.parse(msg.type), JSON.parse(msg.message));
-                console.log(msg);
+                  alert(JSON.parse(msg));
             }, 
             fail: function(failMsg) {
                 alert(failMsg);
