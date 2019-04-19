@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="col-xs-6">
-                    <a href="index.php#info"><i class="glyphicon glyphicon-info-sign"></i>Qui sommes-nous ?</a>
+                    <a href="qui-sommes-nous.php"><i class="glyphicon glyphicon-info-sign"></i>Qui sommes-nous ?</a>
                 </div>
                 <div class="col-xs-6">
                     <a href="news.php"><i class="fa fa-newspaper-o"></i>Actualités</a>

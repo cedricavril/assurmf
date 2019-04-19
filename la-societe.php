@@ -16,7 +16,8 @@ include ("includes/head.php");
           <div class="col-md-9 grey-content" id="background-content">
             <div class="row">
               <main class="page-content">
-<?php include "includes/forms/contact/index.html" ?>
+<?php 
+include "includes/forms/contact/index.html" ?>
               </main>
             </div>
           </div>
@@ -34,4 +35,5 @@ include "includes/modal-view-error.php";
 
 <?php include "includes/footer.php"; ?>
 <script type="text/javascript" src="js/googleMap.js"></script>
-</body>
+<!-- see https://github.com/estelle/input-masking/ for a detailed explanation--><ul>
+<script type="application/javascript" src="js/inputMasking.js"></script></body>

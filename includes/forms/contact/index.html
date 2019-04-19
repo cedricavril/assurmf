@@ -33,7 +33,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="form_tel">Tel *</label>
-                                    <input id="form_tel" type="tel" name="tel" class="form-control" placeholder="Veuillez saisir votre numéro de téléphone *" required="required" data-error="Téléphone requis.">
+
+                                        <input id="form_tel" type="tel" name="tel" placeholder="XX XX XX XX XX" pattern="\d{2} \d{2} \d{2} \d{2} \d{2}" class="form-control masked" data-error="Téléphone requis." >
+
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -85,3 +87,21 @@
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="includes/forms/contact/contact.js"></script>
+
+<script type="text/javascript">
+
+    $("#form_email").focusout(function(e){
+
+    });
+
+    $("#form_email").keyup(function(e){
+//        alert(e.which);
+    });
+
+//    $("#form_email").val($("#form_email").val() + '@');
+
+
+
+</script>
+
+<div>

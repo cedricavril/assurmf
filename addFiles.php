@@ -148,7 +148,8 @@ jQuery(document).ready(function() {
                 //display the user list once done and display the message
 //                getList();
 //                flashShow(JSON.parse(msg.type), JSON.parse(msg.message));
-                  alert(JSON.parse(msg));
+                  console.log(msg);
+                  alert(msg.message);
             }, 
             fail: function(failMsg) {
                 alert(failMsg);

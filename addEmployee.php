@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
                         <label>Téléphone</label>
-                        <input type="tel" class="form-control" data-user="tel" required>
+                        <input id="form_tel" type="tel" name="tel" placeholder="XX XX XX XX XX" pattern="\d{2} \d{2} \d{2} \d{2} \d{2}" class="form-control masked" data-user="tel" data-error="Téléphone requis." required="">
                     </div>
                     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
                         <label>Adresse</label>
@@ -94,3 +94,4 @@ $('#addFilesModal').on('shown.bs.modal', function(){
         });
     });
 </script>
+<script type="application/javascript" src="js/inputMasking.js"></script></body>
