@@ -27,6 +27,7 @@
                     <a href="https://www.facebook.com/WWW.ASSURMF.FR/" target="_blank"><img src="images/picto_facebook.svg" class="iconreso"></a>
                     <a href="https://www.linkedin.com/in/assurmf-assurances-8b9932184/" target="_blank"><img src="images/picto_linkedin.svg" class="iconreso"></a>
                     <a href="https://twitter.com/assurmf" target="_blank"><img src="images/picto_twitter.svg" class="iconreso"></a>
+                    <a href="rss.php" target="_blank"><img src="images/picto_rss.svg" class="iconreso"></a>
                 </h2>
                 <a>© 2019 Assurmf. Tous droits réservés.</a>
             </div>

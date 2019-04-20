@@ -1,7 +1,6 @@
 <?php
-$title = "ASSUR & MF - Actualités";
+$title = "ASSUR & MF - Qui sommes nous ?";
 $style = "indexStyle.css";
-$menu["news"] = "active";
 include ("includes/head.php");
 ?>
   <div class="partenaire">
@@ -10,22 +9,9 @@ include ("includes/head.php");
         <div class="row">
 <?php // include "includes/sideMenu.php"; ?>
           <div class="col-md-12 grey-content" id="background-content">
-            <div class="row">
-<?php // include "includes/news.html" 
-
-  include 'includes/private/bddConnexion.php';
-  
-  $res = $db->query("SELECT * FROM amf_news ORDER BY id DESC LIMIT 0, 10");
-  $res->execute();
-
-        // on ajoute chaque news au fichier RSS
-        while($news = $res->fetch(PDO::FETCH_ASSOC))
-        {
-?>          <main class="page-content jumbotron"><?php
-                echo $news['news'];
-?>          </main><?php
-        }?>
-            </div>
+              <main class="page-content">
+<?php include "includes/home.html" ?>
+              </main>
           </div>
         </div>
       </div>
