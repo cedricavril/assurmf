@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
                         <input type="submit" class="btn btn-success" value=">> suivant">
                     </div>
