@@ -160,6 +160,10 @@ line-height: normal;
   .row {
     margin: 0;
   }
+#responsiveFontSize.row {
+  margin-bottom: 20px;
+}
+
   .panel-heading p {
     display: block;
   }

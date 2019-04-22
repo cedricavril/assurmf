@@ -96,7 +96,7 @@ for ($i = 0; $i < count($images); $i++) {
             </div>
             <div class="col-md-4">
                 <div class="well" style="text-align: center;">
-                    <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center mobileResponsive-lh0" style="margin: 0; color: #eb008b;"><strong>Demander un devis</strong></h2></button></a>
+                    <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center mobileResponsive-lh0" style="margin: 0; color: #eb008b;"><strong>Demander <span style="white-space: nowrap">un devis</span></strong></h2></button></a>
                 </div>
             </div>
         </div>
