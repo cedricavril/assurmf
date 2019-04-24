@@ -22,7 +22,15 @@
                     </div>
                     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
                         <label>Adresse</label>
-                        <textarea class="form-control" data-user="adresse" required></textarea>
+                        <textarea class="form-control" data-user="address" required></textarea>
+                    </div>
+                    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                        <label>Code postal</label>
+                        <input type="text" class="form-control" data-user="postcode" required>
+                    </div>
+                    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                        <label>Ville</label>
+                        <input type="text" class="form-control" data-user="city" required>
                     </div>
                     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
                         <label>Date de naissance</label>
@@ -43,7 +51,7 @@
 
 <script type="text/javascript">
 
-var urlAdd = "admin/userController.php";
+var urlAdd = "userController.php";
 
 flashShow = function(msgAlert,  msgText) {
     var alertBox = '<div class="alert alert-' + msgAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + msgText + '</div>';
@@ -68,7 +76,9 @@ $('#addFilesModal').on('shown.bs.modal', function(){
             email: $('#addEmployeeModal [data-user="email"]').val(), 
             description: $('#addEmployeeModal [data-user="description"]').val(), 
             tel: $('#addEmployeeModal [data-user="tel"]').val(), 
-            adresse: $('#addEmployeeModal [data-user="adresse"]').val(), 
+            address: $('#addEmployeeModal [data-user="address"]').val(), 
+            postcode: $('#addEmployeeModal [data-user="postcode"]').val(), 
+            city: $('#addEmployeeModal [data-user="city"]').val(), 
             prenom: $('#addEmployeeModal [data-user="prenom"]').val(), 
             nom: $('#addEmployeeModal [data-user="nom"]').val(),
             birth_date: $('#addEmployeeModal [data-user="birthDate"]').val(),
@@ -96,4 +106,9 @@ $('#addFilesModal').on('shown.bs.modal', function(){
         });
     });
 </script>
-<script type="application/javascript" src="js/inputMasking.js"></script></body>
+<script type="application/javascript" src="js/inputMasking.js"></script>
+<script type="application/javascript" src="js/jquery/addressCompletor.js"></script>
+<script type="text/javascript">
+    addressCompletor($('#addEmployeeModal [data-user="address"], #addEmployeeModal [data-user="postcode"], #addEmployeeModal [data-user="city"]'));
+</script>
+<!--</body>-->

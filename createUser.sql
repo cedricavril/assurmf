@@ -1,24 +1,27 @@
 CREATE TABLE IF NOT EXISTS `amf_users` (
     `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    `pass` TEXT(32) NOT NULL,
-    `email` TEXT(255) NOT NULL,
+    `pass` TINYTEXT NOT NULL,
+    `email` TINYTEXT NOT NULL,
     `date_arrivee` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     `licence_date` TIMESTAMP NULL,
     `birth_date` TIMESTAMP NULL,
-    `description` TEXT(255) NULL,
-    `adresse` TEXT(255) NULL,
-    `tel` VARCHAR(45) NOT NULL,
-    `prenom` VARCHAR(45) NOT NULL,
-    `nom` VARCHAR(45) NOT NULL
+    `description` TEXT NULL,
+    `address` TINYTEXT NULL,
+    `postcode` TINYTEXT NULL,
+    `city` TINYTEXT NULL,
+    `tel` TINYTEXT NOT NULL,
+    `prenom` TINYTEXT NOT NULL,
+    `nom` TINYTEXT NOT NULL,
+    `newsletter` TINYINT DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `amf_news` (
     `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     `date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-    `news` TEXT(255) NULL
+    `title` TINYTEXT NOT NULL,
+    `news` TEXT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `amf_users` (`pass`, `email`, `licence_date`, `birth_date`, `description`, `adresse`, `tel`, `prenom`, `nom`) VALUES
-('pass', 'cedric_avril_pro@hotmail.fr', '2019-04-25', '2010-00-00', 'description test\r\nsaut', 'adresse test', '0660999649', 'Cédric', 'Avril'),
-('pass2', 'assurmf@contact.fr',  '2010-10-01 00:00:00', '2010-00-00 04:00:00', 'description 2', 'je sais plus', '0660001122', 'Kalissa', 'Marchela'),
-('pass2', 'assurmf@contact.fr',  '2009-10-02 00:00:00', '2010-00-00 04:00:00', 'description 2', 'je sais plus', '0660001122', 'Kalissa', 'Marchela');
+INSERT INTO `amf_users` (`pass`, `email`, `licence_date`, `birth_date`, `description`, `address`, `postcode`, `city`, `tel`, `prenom`, `nom`, `newsletter`) VALUES
+('pass', 'cedric_avril_pro@hotmail.fr', '2019-04-25', '2010-00-00', 'description test\r\nsaut', 'adresse test', '33600', 'Pessac', '0660999649', 'Cédric', 'Avril', 1),
+('PDO méthode add', 'cabinet-amf@outlook.fr', '2019-04-17 07:58:06', '2019-04-17 07:58:06', 'description PDO', '31 rue du général de gaulle ', '33310', 'Lormont', '0557832810', 'kali', 'mekl', 1);

@@ -9,7 +9,9 @@ var url = "userController.php";
             email: $(modalIdSelector + ' [data-user="email"]').val(), 
             description: $(modalIdSelector + ' [data-user="description"]').val(), 
             tel: $(modalIdSelector + ' [data-user="tel"]').val(), 
-            adresse: $(modalIdSelector + ' [data-user="adresse"]').val(), 
+            address: $(modalIdSelector + ' [data-user="address"]').val(), 
+            postcode: $(modalIdSelector + ' [data-user="postcode"]').val(), 
+            city: $(modalIdSelector + ' [data-user="city"]').val(), 
             prenom: $(modalIdSelector + ' [data-user="prenom"]').val(), 
             nom: $(modalIdSelector + ' [data-user="nom"]').val(),
             birth_date: $(modalIdSelector + ' [data-user="birthDate"]').val(),
@@ -125,7 +127,7 @@ var url = "userController.php";
                     $('tr.user:last-child td.nom').html(JSON.parse(data[i]).nom);
                     $('tr.user:last-child td.prenom').html(JSON.parse(data[i]).prenom);
                     $('tr.user:last-child td.email').html(JSON.parse(data[i]).email);
-                    $('tr.user:last-child td.adresse').html(JSON.parse(data[i]).adresse);
+                    $('tr.user:last-child td.adresse').html(JSON.parse(data[i]).address);
                     $('tr.user:last-child td.tel').html(JSON.parse(data[i]).tel);
                     $('tr.user:last-child td.date_arrivee').html(JSON.parse(data[i]).date_arrivee);
                     $('tr.user:last-child td.actions a').attr('id', JSON.parse(data[i]).id);
@@ -178,7 +180,9 @@ var url = "userController.php";
                 $('#editEmployeeModal input[data-user="email"]').val(user.email);
                 $('#editEmployeeModal textarea[data-user="description"]').val(user.description);
                 $('#editEmployeeModal input[data-user="tel"]').val(user.tel);
-                $('#editEmployeeModal textarea[data-user="adresse"]').val(user.adresse);
+                $('#editEmployeeModal textarea[data-user="address"]').val(user.address);
+                $('#editEmployeeModal input[data-user="postcode"]').val(user.postcode);
+                $('#editEmployeeModal input[data-user="city"]').val(user.city);
                 $('#editEmployeeModal input[data-user="prenom"]').val(user.prenom);
                 $('#editEmployeeModal input[data-user="nom"]').val(user.nom);
                 $('#editEmployeeModal input[data-user="birthDate"]').val(user.birth_date);

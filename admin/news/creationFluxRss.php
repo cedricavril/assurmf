@@ -35,7 +35,7 @@ function add_news_node(&$parent, $root, $date, $news)
 
         $titre = "Actualité de $date";
         $texteDuLien = "https://assurmf.fr/news.php?date=$date";
-       
+
         $title = $parent->createElement("title");
         $title = $item->appendChild($title);
         $text_title = $parent->createTextNode($titre);
@@ -77,9 +77,7 @@ function rebuild_rss()
  
         // on ajoute chaque news au fichier RSS
         while($news = $res->fetch(PDO::FETCH_ASSOC))
-        {
-                add_news_node($xml_file, $channel, $news["date"], $news["news"]);
-        }  
+            add_news_node($xml_file, $channel, $news["date"], $news["news"]);
      
         // on écrit le fichier dans la racine
         $xml_file->save("../../news.xml");

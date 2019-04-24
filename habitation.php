@@ -3,7 +3,10 @@ $title = "ASSUR & MF - Habitation";
 $style = "indexStyle.css";
 $menu['habitation'] = "active";
 include ("includes/head.php");
+include ("includes/habitationHead.php");
 ?>
+
+
   <div class="partenaire">
     <div class="grey-bg">
       <div class="container" style="padding-top:40px;">
@@ -22,6 +25,7 @@ include ("includes/head.php");
   </div>
 
 <?php
+include ("includes/habitationFoot.php");
 include "includes/modal-view-error.php";
 ?>
   <div class="blueurContainer">

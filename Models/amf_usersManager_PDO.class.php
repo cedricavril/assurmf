@@ -1,7 +1,7 @@
 <?php
 //namespace amf_usersManager_PDO;
 
-include('private/PDOFactory.class.php');
+include('includes/private/PDOFactory.class.php');
 
 class amf_userManager_PDO {
 

@@ -13,18 +13,18 @@ include ("includes/head.php");
                     <h1>en assurances</h1>
                     <div id="home-chiffres-space">
                         <div id="dixhuit_contrats" class="chiffre-cle mt-30">
-<?php if (!($_SERVER['REMOTE_ADDR'] == '127.0.0.1') && !($_SERVER['REMOTE_ADDR'] == "::1")) {?>
-                            <iframe src="https://assurmf.oggo-data.net/iform/health" width="100%" height="450px" frameborder="0"></iframe> <?php } ?>
-                            <ul>
-                            </ul>
+                            <?php if (!($_SERVER['REMOTE_ADDR'] == '127.0.0.1') && !($_SERVER['REMOTE_ADDR'] == "::1")) {?>
+                                <iframe src="https://assurmf.oggo-data.net/iform/health" width="100%" height="450px" frameborder="0"></iframe> <?php } ?>
+                                <ul>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group chiffre-cle mt-30">
                         </div>
                     </div>
                     <div class="form-group chiffre-cle mt-30">
-                    </div>
-                </div>
-                <div class="form-group chiffre-cle mt-30">
-                    <div id="home-bottom-space" class="col-lg-7 hidden-xs col-lg-pull-5 text-center">
-                        <img src="images/logo.svg" />
+                        <div id="home-bottom-space" class="col-lg-7 hidden-xs col-lg-pull-5 text-center">
+                            <img src="images/logo.svg" />
 <!--        <a href="la-societe.php">
             <button class="btn btn-lg col-lg-offset-0 col-lg-9 col-xs-offset-2" style="white-space: nowrap; width: 100%">Cliquez ici</button>
         </a>-->
@@ -79,28 +79,47 @@ for ($i = 0; $i < count($images); $i++) {
             <div class="img-circle" data-bg = "images/home.svg" id="boutonMRH"><h2>ASSURANCE HABITATION</h2></div>
             <div class="img-circle" data-bg = "images/paw.svg" id="boutonChienChat"><h2>ASSURANCE ANIMAUX</h2></div>
         </div>
+    </div>
 
-        <div class="row" id="responsiveFontSize" style="background-color: #43bdd5">
-            <div class="col-md-4">
-                <div class="well">
-                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">malussés</span>&nbsp;</h2>
-                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">sinistrés</span>&nbsp;</h2>
-                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">non paiements</span>&nbsp;</h2>
-                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">permis étrangers</span>&nbsp;</h2>
-                </div>
-            </div>
-            <div class="col-md-4 mobileResponsive-pt20">
-                <div class="well">
-                    <h2 class="text-danger text-center secondColumn h1 mobileResponsive-lh0 mobileResponsive-mb0" style="height: 0; margin-top: 30px;"><span class="h1" style="line-height: 0; font-weight: bolder; margin: 0; color: white;">on a la solution</span></h2>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="well" style="text-align: center;">
-                    <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center mobileResponsive-lh0" style="margin: 0; color: #eb008b;"><strong>Demander <span style="white-space: nowrap">un devis</span></strong></h2></button></a>
-                </div>
+    <div class="container mt-50" style="padding: 0;">
+        <div class="col-md-3 text-center" style="padding: 0">
+            <a href="moto.php"><div class="img-circle" style="background-color: #43bdd5; width: 190px; height: 190px; margin-top: 50px;"><h2 style="color: #eb008b; margin-top: inherit;">ASSURANCE TEMPORAIRE 2 ROUES</h2></div></a>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="img-circle" style="background-color: white; width: auto; height: 190px; margin: 0; padding: 0; margin-top: 33px; cursor: default;">
+                <h2 style="color: #eb008b; margin-top: inherit;">Assurez-vous immédiatement</h2>
+                <p style="color: rgb(51,51,51); font-weight: bold; text-align: left;">Assur & MF propose une assurance temporaire auto de 1 à 90 jours.
+                    Vous pouvez souscrire 7j/7 et obtenir votre attestation d'assurance provisoire en ligne.
+                Assur & MF est aussi le spécialiste de l'assurance frontière et import export ( targa di cartone ) pour une auto, un poids-lourd, une remorque ou un camping-car.</p>
             </div>
         </div>
-    </div><!--/row-->    
+        <div class="col-md-3 text-center" style="padding: 0">
+            <a href="auto.php"><div class="img-circle" style="background-color: #43bdd5; width: 190px; height: 190px; margin-top: 50px;"><h2 style="color: #eb008b; margin-top: inherit;">ASSURANCE TEMPORAIRE AUTO</h2></div></a>
+        </div>
+    </div>
+
+
+    <div class="row" id="responsiveFontSize" style="background-color: #43bdd5">
+        <div class="col-md-4">
+            <div class="well">
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">malussés</span>&nbsp;</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">sinistrés</span>&nbsp;</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">non paiements</span>&nbsp;</h2>
+                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">permis étrangers</span>&nbsp;</h2>
+            </div>
+        </div>
+        <div class="col-md-4 mobileResponsive-pt20">
+            <div class="well">
+                <h2 class="text-danger text-center secondColumn h1 mobileResponsive-lh0 mobileResponsive-mb0" style="height: 0; margin-top: 30px;"><span class="h1" style="line-height: 0; font-weight: bolder; margin: 0; color: white;">on a la solution</span></h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well" style="text-align: center;">
+                <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center mobileResponsive-lh0" style="margin: 0; color: #eb008b;"><strong>Demander <span style="white-space: nowrap">un devis</span></strong></h2></button></a>
+            </div>
+        </div>
+    </div><!--/row-->
+    <!--</div>-->
 
     <?php 
 } else {
@@ -116,22 +135,22 @@ for ($i = 0; $i < count($images); $i++) {
 
 
 
-    <div class="blueContainer bg-city hidden-xs" style="padding-bottom: 50px;">
-    </div>
-    <div class="partenaire">
+<!--    <div class="blueContainer bg-city hidden-xs" style="padding-bottom: 50px;">
+</div>-->
+<!--    <div class="partenaire">
         <div class="gradientTheme">
             <div class="container" style="padding-top:40px;">
                 <div class="row" style="margin: 0;">
                     <?php // include "includes/sideMenu.php"; ?>
                     <div class="col-md-12 grey-content" id="background-content">
                         <div class="row" id="info">
-                            <?php include "includes/home.html"; ?>
+                            <?php // include "includes/home.html"; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <?php
     include "includes/modal-view-error.php";
@@ -257,7 +276,7 @@ for ($i = 0; $i < count($images); $i++) {
     </script>-->
 
     <script type="text/javascript">
-var user = Object();
+        var user = Object();
         $( document ).ready(function() {
             $('.img-circle').each( function(index) {
                 $(this).css('background-image', "url(" + $(this).attr('data-bg') + ")");

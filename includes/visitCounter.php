@@ -5,7 +5,8 @@
 INSERT INTO `counter`(`counter_type`, `number`) VALUES ("visit", 17751);
 */
 
-	include "private/bddConnexion.php";
+	include "private/PDOFactory.class.php";
+	$db = PDOFactory::getMysqlConnexion();
 
 // vérifier que le cookie n'existe pas avant d'incrémenter.
 if (!isset($_COOKIE['first_visit'])) {

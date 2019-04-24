@@ -4,6 +4,7 @@ $style = "indexStyle.css";
 $menu['prevoyance'] = "active";
 include ("includes/head.php");
 include ("includes/prevoyanceHead.php");
+// mettre plutôt le prevFoot pour éviter redondance ci dessous
 ?>
 <div id="GO" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">

@@ -22,7 +22,16 @@
     <script src="js/jquery.equalheights.js"></script>
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
+    <script>tinymce.init({ 
+        selector:'textarea',
+        setup:function(ed) {
+            ed.on('change', function(e) {
+                title = ed.getContent();
+                $("#title").val($.parseHTML(title.split('<h1>')[1].split('</h1>')[0])[0].data);
+           });
+        }
+    });
+</script>
   
     
     
@@ -35,9 +44,15 @@
 </head>
 <body>
 <div id="content">
-    <div class="container">
-        <div class="row_1" style="color: white;">
-            Copier coller la news
+    <div class="container" style="color: white;">
+        <div class="row_1">
+            Copier coller une news si nécessaire - le titre généré pourra être modifié manuellement.
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="title">Titre :</label>
+                <input type="text" name="title" id="title" style="width: 1000px;" required>
+            </div>
         </div>
         <div class="row">
             <div class="form-group">
@@ -57,17 +72,16 @@
 <script>
 $(function(){
     $("#submit").click(function() {
-        var message = tinyMCE.activeEditor.getContent();
+        var message = tinyMCE.activeEditor.getContent(),
+            title = $('input#title').val();
 
         // Get the HTML contents of the currently active editor
         console.debug(tinyMCE.activeEditor.getContent());
 
-
-
         $.ajax({
             url : 'newsManager.php',
             type : 'POST',
-            data : {news: message},
+            data : {news: message, title: title},
             success : function(code_html, statut){
                 alert('news bien enregistrée.');
                 window.open('creationFluxRss.php','Mise à jour du flux rss','menubar=no, scrollbars=no, top=100, left=100, width=300, height=200');
