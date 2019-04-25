@@ -63,7 +63,6 @@
           </main>
   </ul>
 <?php   }?>
-</div>
 
 <script type="text/javascript">
 

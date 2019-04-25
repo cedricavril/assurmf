@@ -35,3 +35,4 @@ include "includes/modal-view-error.php";
   </div>
 <?php include "includes/footer.php"; ?>
   </body>
+</html>

@@ -149,7 +149,7 @@ echo $string;
 <?php  } ?>
 
 
-</div> <!-- /main Cf. head -->
+</div>
 
 <!--<div class="row text-center" style="margin: 0">-->
     <?php // include ("includes/forms/register/register.html"); ?>
