@@ -30,7 +30,6 @@ include "includes/forms/contact/index.html" ?>
 include "includes/modal-view-error.php";
 ?>
   <div class="blueurContainer">
-    &nbsp;
   </div>
 
 <?php include "includes/footer.php"; ?>

@@ -27,7 +27,6 @@ include ("includes/head.php");
 include "includes/modal-view-error.php";
 ?>
   <div class="blueurContainer">
-    &nbsp;
   </div>
 
 <?php include "includes/footer.php"; ?>

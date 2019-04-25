@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <title>ASSUR & MF - admin - générateur de news</title>
     <meta charset="utf-8">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <meta name = "format-detection" content = "telephone=no" />
     <meta name="author" content="Cédric Avril">
-    <link rel="stylesheet" href="css/bootstrap.css" >
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.js"></script>
@@ -44,9 +52,11 @@
 </head>
 <body>
 <div id="content">
-    <div class="container" style="color: white;">
+    <a href="delNews.php" target="_blank"><button type="button" class="btn btn-danger">Supprimer des news</button></a>    
+    <a href="../../news.php" target="_blank"><button type="button" class="btn btn-success">Voir les news</button></a>
+    <div class="container">
         <div class="row_1">
-            Copier coller une news si nécessaire - le titre généré pourra être modifié manuellement.
+            Copier coller une news si nécessaire - le titre généré peut être modifié manuellement.
         </div>
         <div class="row">
             <div class="form-group">
@@ -55,7 +65,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group">
+            <div class="form-group" style="width: 100%;">
                 <label for="message">Message :</label>
                 <textarea style="height: 1000px;" name="message" id="message"></textarea>
             </div>
@@ -72,6 +82,9 @@
 <script>
 $(function(){
     $("#submit").click(function() {
+
+alert($(tinyMCE.activeEditor.getContainer()).height());
+
         var message = tinyMCE.activeEditor.getContent(),
             title = $('input#title').val();
 
@@ -93,7 +106,6 @@ $(function(){
     });
 });
 </script>
-
 
 </body>
 </html>

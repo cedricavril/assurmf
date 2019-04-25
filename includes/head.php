@@ -110,7 +110,7 @@ hr.bottom{
 </head>
 <body xmlns="http://www.w3.org/1999/html">
 <!--    <div class="bg"><img src="images/BG.jpg"></div>-->
-    <nav class="navbar" style="">
+    <nav class="navbar">
         <div class="container" id="navcontainer">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -183,3 +183,5 @@ hr.bottom{
             </div><!--/.nav-collapse -->
         </div>
     </nav>
+    <!-- main div - font to be put in this div>-->
+    <div style="padding:0; margin: 0; background-color: rgb(238,238,238); padding-bottom: 100px;">

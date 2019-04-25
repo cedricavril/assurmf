@@ -1,4 +1,5 @@
-<div class="whiteSpace" style="height: 200px;"></div>
+</div> <!-- /main div Cf. head file -->
+<!--<div class="whiteSpace" style="height: 200px;"></div>-->
 <div class="blueurContainer">
     <div class="container" id="footer">
         <div class="row">

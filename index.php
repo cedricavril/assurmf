@@ -79,56 +79,77 @@ for ($i = 0; $i < count($images); $i++) {
             <div class="img-circle" data-bg = "images/home.svg" id="boutonMRH"><h2>ASSURANCE HABITATION</h2></div>
             <div class="img-circle" data-bg = "images/paw.svg" id="boutonChienChat"><h2>ASSURANCE ANIMAUX</h2></div>
         </div>
+
+        <div class="container mt-30" style="padding: 0;">
+            <div class="col-md-3 text-center" style="padding: 0">
+                <a href="moto.php"><div class="img-circle" style="background-color: #43bdd5; width: 190px; height: 190px; margin-top: 50px;"><h2 style="color: #eb008b; margin-top: inherit;">ASSURANCE TEMPORAIRE 2 ROUES</h2></div></a>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="img-circle" style="background-color: transparent; width: auto; height: 190px; margin: 0; padding: 0; margin-top: 33px; cursor: default;">
+                    <h2 style="color: #eb008b; margin-top: inherit;">Assurez-vous immédiatement</h2>
+                    <p style="color: rgb(51,51,51); font-weight: bold; text-align: left;">Assur & MF propose une assurance temporaire auto de 1 à 90 jours.
+                        Vous pouvez souscrire 7j/7 et obtenir votre attestation d'assurance provisoire en ligne.
+                    Assur & MF est aussi le spécialiste de l'assurance frontière et import export ( targa di cartone ) pour une auto, un poids-lourd, une remorque ou un camping-car.</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center" style="padding: 0">
+                <a href="auto.php"><div class="img-circle" style="background-color: #43bdd5; width: 190px; height: 190px; margin-top: 50px;"><h2 style="color: #eb008b; margin-top: inherit;">ASSURANCE TEMPORAIRE AUTO</h2></div></a>
+            </div>
+        </div>
+
+
+        <div class="row" id="responsiveFontSize" style="background-color: #43bdd5">
+            <div class="col-md-4">
+                <div class="well">
+                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">malussés</span>&nbsp;</h2>
+                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">sinistrés</span>&nbsp;</h2>
+                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">non paiements</span>&nbsp;</h2>
+                    <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">permis étrangers</span>&nbsp;</h2>
+                </div>
+            </div>
+            <div class="col-md-4 mobileResponsive-pt20">
+                <div class="well">
+                    <h2 class="text-danger text-center secondColumn h1 mobileResponsive-lh0 mobileResponsive-mb0" style="height: 0; margin-top: 30px;"><span class="h1" style="line-height: 0; font-weight: bolder; margin: 0; color: white;">on a la solution</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well" style="text-align: center;">
+                    <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center mobileResponsive-lh0" style="margin: 0; color: #eb008b;"><strong>Demander <span style="white-space: nowrap">un devis</span></strong></h2></button></a>
+                </div>
+            </div>
+        </div><!--/row-->
+        <!--</div>-->
+
+        <?php 
+    } else {
+        ?>
+        <iframe src="https://assurmf.oggo-data.net/icomparator/health" width="100%" height="15000px" frameborder="0"></iframe>
+        <?php
+    }
+    $res = $db->query("SELECT * FROM amf_news ORDER BY id DESC LIMIT 0, 3");
+    $res->execute();
+
+    while($news = $res->fetch(PDO::FETCH_ASSOC))
+        {?>
+
+    <div class="thumbnail col-sm-6 col-md-4 mt-50" style="min-height: 300px;">
+<!--     <img src="images/photo01.jpg" alt="Nature">
+   <div class="caption">-->
+        <h3 style="color: #eb008b"><?= $news['title']; ?></h3>
+        <p><?php 
+$string = $news['news'];
+$pattern = '/<.+>/U';
+$replacement = '';
+$string = preg_replace($pattern, $replacement, $string);
+$string = substr_replace($string, '...', 150, strlen($string));
+echo $string;
+?></p>
+        <p><a href="news.php?id=<?= $news['id']; ?>" class="btn btn-xs btn-primary" role="button" title="En savoir +">En savoir +</a></p>
     </div>
-
-    <div class="container mt-50" style="padding: 0;">
-        <div class="col-md-3 text-center" style="padding: 0">
-            <a href="moto.php"><div class="img-circle" style="background-color: #43bdd5; width: 190px; height: 190px; margin-top: 50px;"><h2 style="color: #eb008b; margin-top: inherit;">ASSURANCE TEMPORAIRE 2 ROUES</h2></div></a>
-        </div>
-        <div class="col-md-6 text-center">
-            <div class="img-circle" style="background-color: white; width: auto; height: 190px; margin: 0; padding: 0; margin-top: 33px; cursor: default;">
-                <h2 style="color: #eb008b; margin-top: inherit;">Assurez-vous immédiatement</h2>
-                <p style="color: rgb(51,51,51); font-weight: bold; text-align: left;">Assur & MF propose une assurance temporaire auto de 1 à 90 jours.
-                    Vous pouvez souscrire 7j/7 et obtenir votre attestation d'assurance provisoire en ligne.
-                Assur & MF est aussi le spécialiste de l'assurance frontière et import export ( targa di cartone ) pour une auto, un poids-lourd, une remorque ou un camping-car.</p>
-            </div>
-        </div>
-        <div class="col-md-3 text-center" style="padding: 0">
-            <a href="auto.php"><div class="img-circle" style="background-color: #43bdd5; width: 190px; height: 190px; margin-top: 50px;"><h2 style="color: #eb008b; margin-top: inherit;">ASSURANCE TEMPORAIRE AUTO</h2></div></a>
-        </div>
-    </div>
+<?php  } ?>
 
 
-    <div class="row" id="responsiveFontSize" style="background-color: #43bdd5">
-        <div class="col-md-4">
-            <div class="well">
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">malussés</span>&nbsp;</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">sinistrés</span>&nbsp;</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">non paiements</span>&nbsp;</h2>
-                <h2 class="text-danger text-center"><span class="label label-danger" style="line-height: 0;">permis étrangers</span>&nbsp;</h2>
-            </div>
-        </div>
-        <div class="col-md-4 mobileResponsive-pt20">
-            <div class="well">
-                <h2 class="text-danger text-center secondColumn h1 mobileResponsive-lh0 mobileResponsive-mb0" style="height: 0; margin-top: 30px;"><span class="h1" style="line-height: 0; font-weight: bolder; margin: 0; color: white;">on a la solution</span></h2>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="well" style="text-align: center;">
-                <a href="#addEmployeeModal" class="btn" data-toggle="modal"><button><h2 class="text-danger text-center mobileResponsive-lh0" style="margin: 0; color: #eb008b;"><strong>Demander <span style="white-space: nowrap">un devis</span></strong></h2></button></a>
-            </div>
-        </div>
-    </div><!--/row-->
-    <!--</div>-->
-
-    <?php 
-} else {
-    ?>
-    <iframe src="https://assurmf.oggo-data.net/icomparator/health" width="100%" height="15000px" frameborder="0"></iframe>
-    <?php
-}
-?>
-</div>
+</div> <!-- /main Cf. head -->
 
 <!--<div class="row text-center" style="margin: 0">-->
     <?php // include ("includes/forms/register/register.html"); ?>
