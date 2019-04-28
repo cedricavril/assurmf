@@ -54,7 +54,7 @@
     <p align="left" style="border: none; padding: 0cm" ><strong>Pour des
      informations complémentaires sans engagement de votre part, vous
  pouvez nous contacter au :</strong></p>
- <p><strong><font size="2" ><a href="tel:+33557832810">0557832810</a></font></strong></p>
+ <p><strong><font size="2"><a style="color: #43bdd5" href="tel:+33557832810">05 57 83 28 10</a></font></strong></p>
  <p style="margin-bottom: 0cm; line-height: 100%"><br/></p>
  <?php echo $visitCounterContent; ?>
 </div>
