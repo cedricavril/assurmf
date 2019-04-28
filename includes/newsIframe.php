@@ -1,5 +1,5 @@
 <style type="text/css">
-  .accordion_parent {
+[class^='accordion_parent'] {
   display: block;
   font-size: 25px;
   height: 40px;
@@ -23,10 +23,10 @@
   top: 10px;
   transition: .2s;
 }
-.accordion_parent {
+[class^='accordion_parent'] {
   color: #eb008b;
 }
-.accordion_children_c {
+ul[class^='accordion_child'] {
   height: 0;
   overflow: hidden;
   transition: .3s;
@@ -43,21 +43,21 @@
         {?>
 <style type="text/css">
 #accordion<?= $news['id']; ?> {display: none;}
-#accordion<?= $news['id']; ?>:checked ~ .accordion_parent {
-	color: black;
+#accordion<?= $news['id']; ?>:checked ~ .accordion_parent<?= $news['id']; ?> {
+  color: black;
 }
-#accordion<?= $news['id']; ?>:checked ~ .accordion_parent .a_p-icon {transform: rotate(90deg); color: black;}
-#accordion<?= $news['id']; ?>:checked ~ .accordion_children_c {
+#accordion<?= $news['id']; ?>:checked ~ .accordion_parent<?= $news['id']; ?> .a_p-icon {transform: rotate(90deg); color: black;}
+#accordion<?= $news['id']; ?>:checked ~ .accordion_child<?= $news['id']; ?> {
   	height: auto;
 	transform: rotate(360deg);
 }
 </style>
   <input type="checkbox" id="accordion<?= $news['id']; ?>">
-  <label for="accordion<?= $news['id']; ?>" class="accordion_parent">
+  <label for="accordion<?= $news['id']; ?>" class="accordion_parent<?= $news['id']; ?>">
     <p class="a_p-character"><?= $news['title']; ?></p>
     <span class="a_p-icon"></span>
   </label>
-  <ul class="accordion_children_c m0">
+  <ul class="accordion_child<?= $news['id']; ?> m0">
           <main class="page-content jumbotron">
             <?= $news['news']; ?>
           </main>
@@ -77,7 +77,7 @@ function getQueryVariable(variable)
        return(false);
 }
 
-  $(".accordion_parent").click(function(e){
+  $("[class^='accordion_parent']").click(function(e){
     console.log(e);
 	  $("html, body").animate( { scrollTop: $('#goThere').offset().top }, 500);
   });

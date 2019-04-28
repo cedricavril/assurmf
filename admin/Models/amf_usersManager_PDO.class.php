@@ -5,7 +5,7 @@ include('private/PDOFactory.class.php');
 
 class amf_userManager_PDO {
 
-	public function getList($debut = -1, $limite = -1)
+	static public function getList($debut = -1, $limite = -1)
 	{
 		$sql = 'SELECT * FROM amf_users ORDER BY id DESC';
 

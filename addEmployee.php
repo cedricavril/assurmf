@@ -40,7 +40,11 @@
                         <label>Date d'obtention du permis</label>
                         <input type="date" class="form-control" data-user="licenceDate" required>
                     </div>
-                </div>
+                    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                        <label>inscription à la newsletter</label>
+                        <input type="checkbox" class="form-control" data-user="newsletter" checked>
+                    </div>
+            </div>
                 <div class="modal-footer">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
@@ -67,10 +71,10 @@ $('#addFilesModal').on('shown.bs.modal', function(){
     $('.js-upload-finished').html('');
 });
 
-
     // adds a user
     $('#addEmployeeModal form').submit(function(e){
         e.preventDefault();
+        newsletter = ($('#addEmployeeModal [data-user="newsletter"]').is(':checked')) ? 1 : 0;
         user = {
             id: "",
             email: $('#addEmployeeModal [data-user="email"]').val(), 
@@ -82,7 +86,8 @@ $('#addFilesModal').on('shown.bs.modal', function(){
             prenom: $('#addEmployeeModal [data-user="prenom"]').val(), 
             nom: $('#addEmployeeModal [data-user="nom"]').val(),
             birth_date: $('#addEmployeeModal [data-user="birthDate"]').val(),
-            licence_date: $('#addEmployeeModal [data-user="licenceDate"]').val()
+            licence_date: $('#addEmployeeModal [data-user="licenceDate"]').val(),
+            newsletter: newsletter
         }
         user.CRUD = 'C';
 

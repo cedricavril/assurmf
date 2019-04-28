@@ -71,6 +71,12 @@
             </div>
         </div>
         <div class="row">
+            <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                <label>Envoyer aussi par mail aux abonnés</label>
+                <input type="checkbox" class="form-control" id="sendMail" name="sendMail">
+            </div>
+        </div>
+        <div class="row">
             <div class="form-group">
                 <input class="btn btn-default" id="submit" type="submit" value="Envoyer" />
             </div>
@@ -83,10 +89,8 @@
 $(function(){
     $("#submit").click(function() {
 
-alert($(tinyMCE.activeEditor.getContainer()).height());
-
-        var message = tinyMCE.activeEditor.getContent(),
-            title = $('input#title').val();
+        var news = tinyMCE.activeEditor.getContent(),
+        title = $('input#title').val();
 
         // Get the HTML contents of the currently active editor
         console.debug(tinyMCE.activeEditor.getContent());
@@ -94,7 +98,7 @@ alert($(tinyMCE.activeEditor.getContainer()).height());
         $.ajax({
             url : 'newsManager.php',
             type : 'POST',
-            data : {news: message, title: title},
+            data : {news: news, title: title},
             success : function(code_html, statut){
                 alert('news bien enregistrée.');
                 window.open('creationFluxRss.php','Mise à jour du flux rss','menubar=no, scrollbars=no, top=100, left=100, width=300, height=200');
@@ -103,6 +107,21 @@ alert($(tinyMCE.activeEditor.getContainer()).height());
                 alert('error'+erreur+" "+resultat+" "+statut);
             }
         });
+
+if ($('#sendMail').prop('checked')) {
+        $.ajax({
+            url : 'sendNewsletterByMail.php',
+            type : 'POST',
+            data : {news: news, title: title},
+            success : function(code_html, statut){
+                alert(code_html.message);
+            },
+            error : function(resultat, statut, erreur){
+                alert('error '+erreur+" "+resultat+" "+statut);
+            }
+        });
+};
+
     });
 });
 </script>

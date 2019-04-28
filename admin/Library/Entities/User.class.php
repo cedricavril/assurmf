@@ -17,6 +17,7 @@ class User extends Entity
             $postcode,
             $city,
             $prenom,
+            $newsletter,
             $nom;
              
 /*  public function isValid()

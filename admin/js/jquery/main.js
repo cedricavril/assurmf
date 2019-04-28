@@ -4,6 +4,7 @@ var url = "userController.php";
 
     // constructs the user obj matching the modal Id
     userFromModal = function(modalIdSelector = '') {
+        newsletter = ($(modalIdSelector + ' [data-user="newsletter"]').prop('checked')) ? '1' : '0';
         var user = {
             id: "",
             email: $(modalIdSelector + ' [data-user="email"]').val(), 
@@ -15,9 +16,9 @@ var url = "userController.php";
             prenom: $(modalIdSelector + ' [data-user="prenom"]').val(), 
             nom: $(modalIdSelector + ' [data-user="nom"]').val(),
             birth_date: $(modalIdSelector + ' [data-user="birthDate"]').val(),
-            licence_date: $(modalIdSelector + ' [data-user="licenceDate"]').val()
+            licence_date: $(modalIdSelector + ' [data-user="licenceDate"]').val(),
+            newsletter: newsletter
         }
-
         return user;
     }
 
@@ -187,6 +188,7 @@ var url = "userController.php";
                 $('#editEmployeeModal input[data-user="nom"]').val(user.nom);
                 $('#editEmployeeModal input[data-user="birthDate"]').val(user.birth_date);
                 $('#editEmployeeModal input[data-user="licenceDate"]').val(user.licence_date);
+                $('#editEmployeeModal input[data-user="newsletter"]').prop('checked', (user.newsletter == '1') ? true : false);
             }, 
             fail: function(failMsg) {
                 alert(JSON.parse(failMsg.message));

@@ -23,7 +23,8 @@ if (!isset($_POST["CRUD"])) $_POST["CRUD"] = 'R';
 					'prenom' => $_POST["prenom"], 
 					'birth_date' => date("Y-m-d H:i:s"), 
 					'licence_date' => date("Y-m-d H:i:s"), 
-					'nom' => $_POST["nom"])
+					'nom' => $_POST["nom"],
+					'newsletter' => $_POST["newsletter"])
 			)));
 			break;
 
@@ -41,7 +42,8 @@ if (!isset($_POST["CRUD"])) $_POST["CRUD"] = 'R';
 					'prenom' => $_POST["prenom"], 
 					'birth_date' => $_POST["birth_date"], 
 					'licence_date' => $_POST["licence_date"], 
-					'nom' => $_POST["nom"])
+					'nom' => $_POST["nom"],
+					'newsletter' => $_POST["newsletter"])
 			)));
 			break;
 		

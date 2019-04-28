@@ -15,6 +15,7 @@ class User extends Entity
             $tel,
             $address,
             $postcode,
+            $newsletter,
             $city,
             $prenom,
             $nom;
