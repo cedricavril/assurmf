@@ -1,0 +1,5 @@
+AddDefaultCharset UTF-8
+AuthUserFile "/home/assurmffot/www/admin/.htpasswd"
+AuthName "Page d'administration protégée"
+AuthType Basic
+Require valid-user

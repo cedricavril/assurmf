@@ -1,0 +1,31 @@
+<!--HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Encoding: gzip
+Vary: Accept-Encoding
+Server: Microsoft-IIS/7.5
+X-Powered-By: ASP.NET
+Date: Thu, 11 Feb 2021 17:32:38 GMT
+Content-Length: 1399
+Strict-Transport-Security: max-age=15768000-->
+<!DOCTYPE html>
+<HTML lang="fr"><HEAD><meta charset="UTF-8"><link rel="alternate" type="text/xml" href="http://wspartenaires.april.fr/AssuranceDePret/Tarification.svc?disco"/><STYLE type="text/css">#content{ FONT-SIZE: 0.7em; PADDING-BOTTOM: 2em; MARGIN-LEFT: 30px}BODY{MARGIN-TOP: 0px; MARGIN-LEFT: 0px; COLOR: #000000; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white}P{MARGIN-TOP: 0px; MARGIN-BOTTOM: 12px; COLOR: #000000; FONT-FAMILY: Verdana}PRE{BORDER-RIGHT: #f0f0e0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #f0f0e0 1px solid; MARGIN-TOP: -5px; PADDING-LEFT: 5px; FONT-SIZE: 1.2em; PADDING-BOTTOM: 5px; BORDER-LEFT: #f0f0e0 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #f0f0e0 1px solid; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #e5e5cc}.heading1{MARGIN-TOP: 0px; PADDING-LEFT: 15px; FONT-WEIGHT: normal; FONT-SIZE: 26px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: -30px; WIDTH: 100%; COLOR: #ffffff; PADDING-TOP: 10px; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #003366}.intro{MARGIN-LEFT: -15px}</STYLE><TITLE>Service Tarification</TITLE></HEAD><BODY><DIV id="content"><P class="heading1">Service Tarification</P><BR/><P class="intro">Vous avez créé un service.<P class='intro'>Pour tester ce service, vous allez devoir créer un client et l'utiliser pour appeler le service. Pour ce faire, vous pouvez utiliser l'outil svcutil.exe à partir de la ligne de commande avec la syntaxe suivante :</P> <BR/><PRE>svcutil.exe <A HREF="http://wspartenaires.april.fr/AssuranceDePret/Tarification.svc?wsdl">http://wspartenaires.april.fr/AssuranceDePret/Tarification.svc?wsdl</A></PRE><P>You can also access the service description as a single file:<BR/><PRE><A HREF="http://wspartenaires.april.fr/AssuranceDePret/Tarification.svc?singleWsdl">http://wspartenaires.april.fr/AssuranceDePret/Tarification.svc?singleWsdl</A></PRE></P></P><P class="intro"/>Cette opération va créer un fichier de configuration et un fichier de code contenant la classe du client. Ajoutez les deux fichiers à votre application cliente et utilisez la classe de client générée pour appeler le service. Par exemple :<BR/><P class='intro'><B>C#</B></P><PRE><font color="blue">class </font><font color="teal">Test
+</font>{
+<font color="blue">    static void </font>Main()
+    {
+        <font color="teal">TarificationClient</font> client = <font color="blue">new </font><font color="teal">TarificationClient</font>();
+
+<font color="green">        // Utilisez la variable 'client' pour appeler des opérations sur le service.
+
+</font><font color="green">        // Fermez toujours le client.
+</font>        client.Close();
+    }
+}
+</PRE><BR/><P class='intro'><B>Visual Basic</B></P><PRE><font color="blue">Class </font><font color="teal">Test
+</font><font color="blue">    Shared Sub </font>Main()
+<font color="blue">        Dim </font>client As <font color="teal">TarificationClient</font> = <font color="blue">New </font><font color="teal">TarificationClient</font>()
+<font color="green">        ' Utilisez la variable 'client' pour appeler des opérations sur le service.
+
+</font><font color="green">        ' Fermez toujours le client.
+</font>        client.Close()
+<font color="blue">    End Sub
+</font><font color="blue">End Class</font></PRE></DIV></BODY></HTML>

@@ -1,0 +1,128 @@
+Présentation de Assur & MF
+
+Partenaires
+
+Pourquoi une refonte :
+	Le site ne répond plus aux nouvelles règlementations et de nouvelles fonctionnalités sont requises, comme des comparateurs en ligne. 
+		-> Intégration de nouvelles fonctionnalités et d'iframes pour générer des devis. 
+		-> Demande de devis en ligne. 
+		-> Cookie notice et RGPD.
+
+	Nouveau thème. 
+	Restructuration et changements dans l'arborescence. 
+	Édition de nouvelles données et partenaires.
+	Page d'administration de news et de clients. 
+	Template de mailing.
+
+à conserver : 
+	Le anciennes données statiques textuelles.
+	le logo.
+
+volume de données devant être migré :
+	Environ dix pages de données plus des images peu lourdes.
+
+Charte graphique :
+	Cette dernière est respectée post génération de news.
+	Bootstrap, simulassur.
+
+couleurs : 
+	bleu #43bdd5
+	rose #eb008b
+	jaune #f8a332
+
+"Open Sans", sans-serif -> font + ancien font
+nouvelle font : Celle par défaut de Bootstrap 
+=> mix des 2
+
+*************************************Titres*********************************************
+Nouvelles fonctionnalités :
+	utilisation de l'API de Googlemap approfondie
+	utilisation de l'API de gouv.fr pour la completion de localisation
+	automatisation de mailing
+	PHP Mailer
+
+Page d'administration :
+	News
+	Clients / prospects : CRUD de données textuelles, espace de stockage unilatéral de documents ou images envoyées
+
+menu encarts
+boutons circulaires
+Carousel partenaires
+Visit counter
+Effet et visu images
+Responsive 
+stockage, publication et intégration de la vidéo de présentation via le réseau youtube
+
+News :
+	boutons news
+	Vignettes news
+	Flux RSS
+	générateur de news
+
+Formulaires :
+	Demande de devis
+	Contact
+	Administration
+	Envoi multiple et stockage de fichiers, possibilité de transmettre tout document
+
+Sécurité :
+	htaccess, scripts php et js, gestion de droits de dossiers.
+	Isolation du script de connexion à la BDD dans un dossier inaccessible.
+	Cookie notice
+	RGPD fourni par Assur & MF.
+
+Arborescence :
+	Breadcrumb à faire
+	redirections https et autres : maison
+
+Mailing :
+	envoi de données métier, template : back : PHP Mailer 33%, maison 33%, bootstrap 33%
+
+Modélisation et gestion des données métier
+
+Tests :
+	effectués :
+		en local
+		chez OVH
+		chez FSH
+
+*******************************************Outils****************************************************
+Bootstrap
+Bootstrap MD
+TinyMCE
+divers CDN (jquery, Bootstrap + MD, fontawesome)
+Recaptcha
+
+Codepen
+Git (private et sans mdp)
+HTML / CSS / JS editor et cleaner
+
+******************************************FRONTEND***************************************************
+*****************************************Partenariat*************************************************
+dépendance aux fermetures des iframe netvox le week end.
+Iframes Netvox
+
+***************************************Ux (sous titres)**********************************************
+Youtube
+Googlemap
+Iframes, 
+Modales et formulaires :
+	ajax
+	notifications d'erreurs à la volée
+	filtres de champs de saisie
+	Completion
+Pictogrammes,
+Symboles, 
+icônes
+Intéractions :
+	animations
+	drag and drop
+	scroll auto
+	affichage des images (ou partenaires) similaire au site initial, parcours à la volée non géré.
+
+Acceptation et utilisation d'images svg.
+
+*******************************************Annexes***************************************************
+todo: Marvel ou mockup : pour chaque page, y mettre des liens menant vers les parties du cdc qui en parlent
+//todo: rassembler les sql de création des tables
+todo: MWB

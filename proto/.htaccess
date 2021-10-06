@@ -1,0 +1,5 @@
+SetEnv SESSION_USE_TRANS_SID 0
+RewriteEngine On
+RewriteRule ^admin/ Web/backend.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ Web/frontend.php [QSA,L]

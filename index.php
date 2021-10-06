@@ -78,6 +78,7 @@ for ($i = 0; $i < count($images); $i++) {
             <div class="img-circle" data-bg = "images/motorcycle.svg" id="bouton2roues1"><h2>ASSURANCE 2 ROUES</h2></div>
             <div class="img-circle" data-bg = "images/home.svg" id="boutonMRH"><h2>ASSURANCE HABITATION</h2></div>
             <div class="img-circle" data-bg = "images/paw.svg" id="boutonChienChat"><h2>ASSURANCE ANIMAUX</h2></div>
+            <div class="img-circle" data-bg = "images/home.svg" id="boutonLI"><h2>ASSURANCE&nbsp;DES LOYERS&nbsp;IMPAYÉS</h2></div>
         </div>
 
         <div class="container mt-30" style="padding: 0;">
@@ -307,7 +308,8 @@ echo $string;
                 window.open("https://www.simulassur.fr/iframer/9689/2", '_blank');
             });
             $("#boutonAuto1").click( function(){
-                window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=2", '_blank');
+//                window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=2", '_blank');
+                window.open("https://auto.sollyazarpro.com/produit/autos/?i=9c72a17d4e30f7090154c4e24cbcaebf70bf7244", '_blank');
             });
             $("#boutonAuto2").click( function(){
                 window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=62", '_blank');
@@ -316,19 +318,23 @@ echo $string;
                 window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=42", '_blank');
             });
             $("#bouton2roues1").click( function(){
-                window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=22", '_blank');
+//                window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=22", '_blank');
+                window.open("http://moto.sollyazarpro.com/produit/motos/?i=9c72a17d4e30f7090154c4e24cbcaebf70bf7244", '_blank');
             });
             $("#bouton2roues2").click( function(){
                 window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=32", '_blank');
             });
             $("#boutonMRH").click( function(){
-                window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=12", '_blank');
+                window.open("https://gli2i.sollyazarpro.com/produit/gli2i/formulaire", '_blank');
             });
             $("#boutonChienChat").click( function(){
-                window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=52", '_blank');
+                window.open("https://quadrupaide.sollyazarpro.com/produit/quadrupaide/?i=9c72a17d4e30f7090154c4e24cbcaebf70bf7244", '_blank');
             });
             $("#boutonSante").click( function(){
                 window.open("http://www.gestion-assurances.com/site_partenaire.aspx?code=OPE16861&dst=72", '_blank');
+            });
+            $("#boutonLI").click( function(){
+                window.open("http://gli2i.sollyazarpro.com/produit/gli2i/?i=9c72a17d4e30f7090154c4e24cbcaebf70bf7244", '_blank');
             });
 
 // scroll animation for anchors except # alone

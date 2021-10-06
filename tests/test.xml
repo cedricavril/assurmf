@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<wsdl:definitions name="Tarification" targetNamespace="http://www.april.fr/APR/Exposition/Distribution/ADPv4" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://www.april.fr/APR/Exposition/Distribution/ADPv4" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+	<wsdl:types>
+	<xs:schema elementFormDefault="qualified" targetNamespace="http://www.april.fr/APR/Exposition/Distribution/ADPv4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ObtenirTarif">
+	<xs:complexType>
+	<xs:sequence>
+	<xs:element minOccurs="0" name="Demande" nillable="true" type="tns:DemandeObtenirTarif"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="DemandeObtenirTarif">
+	<xs:complexContent mixed="false">
+	<xs:extension base="tns:DemandeAvecEcheancier">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="Projet" nillable="true" type="tns:Projet"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="DemandeObtenirTarif" nillable="true" type="tns:DemandeObtenirTarif"/>
+<xs:complexType name="DemandeAvecEcheancier">
+	<xs:complexContent mixed="false">
+	<xs:extension base="tns:Demande">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="AvecEcheancier" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="DemandeAvecEcheancier" nillable="true" type="tns:DemandeAvecEcheancier"/>
+<xs:complexType name="Demande">
+	<xs:sequence>
+	<xs:element name="Licence" nillable="true" type="xs:string"/>
+<xs:element name="Identite" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="IdentifiantTracabilite" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Demande" nillable="true" type="tns:Demande"/>
+<xs:complexType name="Projet">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="Produit" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="TypeCotisation" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="TypeDeProjet" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Banque" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Assures" nillable="true" type="tns:ArrayOfAssure"/>
+<xs:element minOccurs="0" name="Prets" nillable="true" type="tns:ArrayOfPret"/>
+<xs:element minOccurs="0" name="Couvertures" nillable="true" type="tns:ArrayOfCouverture"/>
+<xs:element minOccurs="0" name="DateEffet" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="DateDemenagement" type="xs:dateTime">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="AdresseFuture" nillable="true" type="tns:Adresse">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="ChangementAssurance" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="Promotions" nillable="true" type="tns:ArrayOfPromotion"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Projet" nillable="true" type="tns:Projet"/>
+<xs:complexType name="ArrayOfAssure">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="Assure" nillable="true" type="tns:Assure"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfAssure" nillable="true" type="tns:ArrayOfAssure"/>
+<xs:complexType name="Assure">
+	<xs:complexContent mixed="false">
+	<xs:extension base="tns:Personne">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="AcceptationSollicitationPartenairesAPRIL" type="xs:boolean"/>
+<xs:element minOccurs="0" name="Commissionnement" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="TypeEmprunteur" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="StatutProfessionnel" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Fumeur" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="Profession" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="LieuResidence" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="NomDeNaissance" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="DepartementDeNaissance" type="xs:int"/>
+<xs:element minOccurs="0" name="CommuneDeNaissance" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PaysDeNaissance" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Nationalite" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PersonnePolitiquementExposee" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RegimeObligatoire" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="DateEmbaucheEmployeurCDI" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="DateEmbaucheEmployeurCDDInterim" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="DureeTravail" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Produit" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="DeplacementsPlusDeQuinzeMilleKms" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="ProfessionAPlusDeQuinzeMetres" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="ActiviteProfessionnelleAvecManutention" nillable="true" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="Assure" nillable="true" type="tns:Assure"/>
+<xs:complexType name="Personne">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="Civilite" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="DateDeNaissance" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="Adresse" nillable="true" type="tns:Adresse"/>
+<xs:element minOccurs="0" name="TelephoneFixe" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="TelephonePortable" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Email" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Personne" nillable="true" type="tns:Personne"/>
+<xs:complexType name="Adresse">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="AdresseLigne1" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="AdresseLigne2" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="CodePostal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="CodePays" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Ville" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Adresse" nillable="true" type="tns:Adresse"/>
+<xs:complexType name="ArrayOfPret">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="Pret" nillable="true" type="tns:Pret"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfPret" nillable="true" type="tns:ArrayOfPret"/>
+<xs:complexType name="Pret">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="NumeroPret" type="xs:int"/>
+<xs:element minOccurs="0" name="TypePret" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="TypeDiffere" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="DureeDiffereEnMois" type="xs:int"/>
+<xs:element minOccurs="0" name="Paliers" nillable="true" type="tns:ArrayOfPalier"/>
+<xs:element minOccurs="0" name="CreditBail" nillable="true" type="tns:CreditBail"/>
+<xs:element minOccurs="0" name="CapitalEmprunte" type="xs:decimal"/>
+<xs:element minOccurs="0" name="TauxInteret" type="xs:decimal"/>
+<xs:element minOccurs="0" name="DureeEnMois" type="xs:int"/>
+<xs:element minOccurs="0" name="PourcentageCapitalAmortiPendantDiffere" type="xs:decimal"/>
+<xs:element minOccurs="0" name="Preteur" nillable="true" type="tns:Preteur"/>
+<xs:element minOccurs="0" name="AdresseDelegationBenefice" nillable="true" type="tns:Adresse"/>
+<xs:element minOccurs="0" name="FraisDossierBanque" type="xs:decimal"/>
+<xs:element minOccurs="0" name="TEG" type="xs:decimal"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Pret" nillable="true" type="tns:Pret"/>
+<xs:complexType name="ArrayOfPalier">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="Palier" nillable="true" type="tns:Palier"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfPalier" nillable="true" type="tns:ArrayOfPalier"/>
+<xs:complexType name="Palier">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="Numero" type="xs:int"/>
+<xs:element minOccurs="0" name="Montant" type="xs:decimal"/>
+<xs:element minOccurs="0" name="DureeEnMois" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Palier" nillable="true" type="tns:Palier"/>
+<xs:complexType name="CreditBail">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="ValeurResiduelle" type="xs:decimal"/>
+<xs:element minOccurs="0" name="Loyers" nillable="true" type="tns:ArrayOfLoyer"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="CreditBail" nillable="true" type="tns:CreditBail"/>
+<xs:complexType name="ArrayOfLoyer">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="Loyer" nillable="true" type="tns:Loyer"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfLoyer" nillable="true" type="tns:ArrayOfLoyer"/>
+<xs:complexType name="Loyer">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="Numero" type="xs:int"/>
+<xs:element minOccurs="0" name="Montant" type="xs:decimal"/>
+<xs:element minOccurs="0" name="DureeEnMois" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Loyer" nillable="true" type="tns:Loyer"/>
+<xs:complexType name="Preteur">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="RaisonSociale" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Adresse" nillable="true" type="tns:Adresse"/>
+<xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Email" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Preteur" nillable="true" type="tns:Preteur"/>
+<xs:complexType name="ArrayOfCouverture">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="Couverture" nillable="true" type="tns:Couverture"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfCouverture" nillable="true" type="tns:ArrayOfCouverture"/>
+<xs:complexType name="Couverture">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="NumeroPret" type="xs:int"/>
+<xs:element minOccurs="0" name="TypeEmprunteur" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="QuotiteDCPTIA" type="xs:decimal"/>
+<xs:element minOccurs="0" name="QuotiteITTIPT" type="xs:decimal"/>
+<xs:element minOccurs="0" name="Garanties" nillable="true" type="tns:ArrayOfGarantie"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Couverture" nillable="true" type="tns:Couverture"/>
+<xs:complexType name="ArrayOfGarantie">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="Garantie" nillable="true" type="tns:Garantie"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfGarantie" nillable="true" type="tns:ArrayOfGarantie"/>
+<xs:complexType name="Garantie">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="CodeGarantie" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="CodeNiveau" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="CodeFranchise" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="ModeIndemnisation" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Garantie" nillable="true" type="tns:Garantie"/>
+<xs:complexType name="ArrayOfPromotion">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="Promotion" nillable="true" type="tns:Promotion"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfPromotion" nillable="true" type="tns:ArrayOfPromotion"/>
+<xs:complexType name="Promotion">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="CodePromotion" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ValeurPromotion" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Promotion" nillable="true" type="tns:Promotion"/>
+<xs:element name="ObtenirTarifResponse">
+	<xs:complexType>
+	<xs:sequence>
+	<xs:element minOccurs="0" name="ObtenirTarifResult" nillable="true" type="tns:ReponseObtenirTarif"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="ReponseObtenirTarif">
+	<xs:complexContent mixed="false">
+	<xs:extension base="tns:Reponse">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="Tarif" nillable="true" type="tns:Tarif">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="ReponseObtenirTarif" nillable="true" type="tns:ReponseObtenirTarif"/>
+<xs:complexType name="Reponse">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="StatutTechnique" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="MessageTechnique" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="StatutMetier" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="MessagesMetier" nillable="true" type="tns:ArrayOfMessageMetier">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Reponse" nillable="true" type="tns:Reponse"/>
+<xs:complexType name="ArrayOfMessageMetier">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="MessageMetier" nillable="true" type="tns:MessageMetier"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfMessageMetier" nillable="true" type="tns:ArrayOfMessageMetier"/>
+<xs:complexType name="MessageMetier">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="IdentifiantOffre" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="IdentifiantReference" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="ProprieteReference" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="MessageMetier" nillable="true" type="tns:MessageMetier"/>
+<xs:complexType name="Tarif">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="IdentifiantReference" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="CodeProduit" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="LibelleCommercial" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="TypeCotisation" nillable="true" type="xs:string">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="TarifGlobal" nillable="true" type="tns:TarifGlobal"/>
+<xs:element minOccurs="0" name="TarifParAssure" nillable="true" type="tns:ArrayOfTarifAssure"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Tarif" nillable="true" type="tns:Tarif"/>
+<xs:complexType name="TarifGlobal">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="CoutTotal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="EcheancierCumule" nillable="true" type="tns:ArrayOfEcheanceCumule">
+	<xs:annotation>
+	<xs:appinfo>
+	<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TarifGlobal" nillable="true" type="tns:TarifGlobal"/>
+<xs:complexType name="ArrayOfEcheanceCumule">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="EcheanceCumule" nillable="true" type="tns:EcheanceCumule"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfEcheanceCumule" nillable="true" type="tns:ArrayOfEcheanceCumule"/>
+<xs:complexType name="EcheanceCumule">
+	<xs:sequence>
+	<xs:element minOccurs="0" name="Annee" type="xs:int"/>
+<xs:element minOccurs="0" name="Capital" type="xs:decimal"/>
+<xs:element minOccurs="0" name="CotisationAnnuelle" type="xs:decimal"/>
+<xs:element minOccurs="0" name="CotisationMensuelleMoyenne" type="xs:decimal"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="EcheanceCumule" nillable="true" type="tns:EcheanceCumule"/>
+<xs:complexType name="ArrayOfTarifAssure">
+	<xs:sequence>
+	<xs:element minOccurs="0" maxOccurs="unbounded" name="TarifAssure" nillable="true" type="tns:TarifAssure"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfTarifAssure" nillable="true" type="tns:ArrayOfTarifAssure"/>
+<xs:complexType name="Tar

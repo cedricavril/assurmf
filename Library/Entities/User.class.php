@@ -1,7 +1,7 @@
 <?php
 //namespace Users;
 
-require_once('Library/Entity.class.php');
+require_once('../Entity.class.php');
 
 class User extends Entity
 {
