@@ -40,8 +40,6 @@ abstract class Field
     {
       if (!$validator->isValid($this->value))
       {
-        echo "not valid : ";
-        var_dump($this->value);
         $this->errorMessage = "<strong style='color: red'>&#8594; ".$validator->errorMessage()."</strong>";
         return false;
       }
