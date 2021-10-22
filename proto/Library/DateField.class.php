@@ -15,10 +15,7 @@ class DateField extends Field
 
 // l'id est en fait obligatoire depuis le rajout de for
 
-    $widget .= '<div class="form-group col-sm-6 flex-column d-flex row justify-content-end"><label class="control-label col-sm-12" for="'.$this->id.'">'.$this->label.'</label><div class="col-sm-10"><input type="text" name="'.$this->name.'" maxlength="10"';
-
-
-
+    $widget .= '<div class="form-group col-sm-6 flex-column d-flex row justify-content-end"><label class="control-label col-sm-12" for="'.$this->id.'">'.$this->label.'</label><div class="col-sm-10"><input type="date" name="'.$this->name.'" maxlength="10"';
 
 
 

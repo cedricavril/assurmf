@@ -1,4 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
-RewriteRule ^ https://assurmf.fr%{REQUEST_URI} [L,R=301]
