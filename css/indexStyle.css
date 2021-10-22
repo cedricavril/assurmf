@@ -391,8 +391,6 @@ padding:3px;
 100% {left:-7000px;}
 }
 /* /home page slider */
-
-
 #prevoyanceButtons.panels .img-circle {
   width: 180px; 
   height: 180px;
@@ -417,4 +415,8 @@ padding:3px;
 /* googlemap */
 .gmapInfoWindowGutter2 h2 {
   font-size: 10px;
+}
+
+.timify-button{
+  cursor: pointer;
 }

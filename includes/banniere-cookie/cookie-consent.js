@@ -26,8 +26,8 @@
 
 		//Affiche une bannière d'information en haut de la page
 		 function showBanner(){
-			var bodytag = document.getElementsByTagName('body')[0];
-			var div = document.createElement('div');
+			bodytag = document.getElementsByTagName('body')[0];
+			div = document.createElement('div');
 			div.setAttribute('id','cookie-banner');
 			// Le code HTML de la demande de consentement
 			div.innerHTML =  '\
@@ -79,7 +79,7 @@
 
 		//Vérifie la valeur de navigator.DoNotTrack pour savoir si le signal est activé et est à  1
 		function notToTrack() {
-			if ( (navigator.doNotTrack && (navigator.doNotTrack=='yes' || navigator.doNotTrack=='1'))
+/*			if ( (navigator.doNotTrack && (navigator.doNotTrack=='yes' || navigator.doNotTrack=='1'))
 				|| ( navigator.msDoNotTrack && navigator.msDoNotTrack == '1') ) {
 				var isIE = (getInternetExplorerVersion()!=-1)
 				if (!isIE){    
@@ -87,10 +87,13 @@
 				}
 				return false;
 			}
+*/		
+			return false;
 		}
 
 		//Si le signal est à  0 on considère que le consentement a déjà  été obtenu
 		function isToTrack() {
+			// tester continuer ici
 			if ( navigator.doNotTrack && (navigator.doNotTrack=='no' || navigator.doNotTrack==0 )) {
 				return true;
 			}
@@ -205,11 +208,16 @@
 			start: function() {
 				//Ce bout de code vérifie que le consentement n'a pas déjà été obtenu avant d'afficher
 				// la bannière
+
+
+
 				var consentCookie =  getCookie('hasConsent');
 				clickprocessed = false; 
 				if (!consentCookie) {
 					//L'utilisateur n'a pas encore de cookie, on affiche la bannière. 
 					//Si il clique sur un autre élément que la bannière on enregistre le consentement
+						console.log(notToTrack());
+						console.log("notToTrack()");
 					if ( notToTrack() ) { 
 						//alert("You've enabled DNT, we're respecting your choice");
 						var bodytag2 = document.getElementsByTagName('body')[0];
@@ -227,9 +235,11 @@
 							consent();
 						} else {
 							if (window.addEventListener) { 
+								console.log("test1");
 							  window.addEventListener("load", showBanner, false);
 							  document.addEventListener("click", consent, false);
 							} else {
+								console.log("test2");
 							  window.attachEvent("onload", showBanner);
 							  document.attachEvent("onclick", consent);
 							}
