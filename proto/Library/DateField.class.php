@@ -26,7 +26,6 @@ class DateField extends Field
      
     if (!empty($this->value))
     {
-//      $widget .= ' value="'.htmlspecialchars($this->value->format("d/m/Y")).'" ';
       $widget .= ' value="'.htmlspecialchars($this->value).'" ';
     }
 
