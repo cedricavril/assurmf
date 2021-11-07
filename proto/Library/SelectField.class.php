@@ -20,10 +20,6 @@ class SelectField extends Field
 
     $widget .= '<div class="form-group col-sm-6 flex-column d-flex row justify-content-end"><label class="control-label col-sm-12" for="'.$this->name.'">'.$this->label.'</label><div class="col-sm-10"><select name="'.$this->name.'">';
 
-
-
-
-    
     foreach ($this->listeSujets as $key => $item) {
       if (!empty($this->listeSujets)) {
         $selectage = "";
